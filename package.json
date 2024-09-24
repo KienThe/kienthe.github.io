@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "next:deploy": "gh-pages -d .dist",
+    "next:deploy": "gh-pages -d docs",
     "build": "next build",
     "db:generate": "prisma migrate dev",
     "db:migrate": "prisma migrate deploy",
