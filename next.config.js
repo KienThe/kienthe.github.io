@@ -8,7 +8,8 @@ await import("./src/env.js")
 const config = {
   output: "export",
   images: {
-    domains: ["https://i.ibb.co"]
+    domains: ["https://i.ibb.co"],
+    unoptimized: true
   }
 }
 
