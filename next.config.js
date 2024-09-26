@@ -7,6 +7,7 @@ await import("./src/env.js")
 /** @type {import("next").NextConfig} */
 const config = {
   output: "export",
+  basePath: "/me",
   images: {
     domains: ["https://i.ibb.co"],
     // unoptimized: true
