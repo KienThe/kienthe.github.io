@@ -14,7 +14,7 @@ export default async function Home() {
 
       <div className="flex justify-center">
         <Image
-          src="/images/meme.webp"
+          src="/me/images/meme.webp"
           alt="pull stack"
           className="img-fluid"
           width={800}
