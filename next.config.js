@@ -9,7 +9,7 @@ const config = {
   output: "export",
   images: {
     domains: ["https://i.ibb.co"],
-    unoptimized: true
+    // unoptimized: true
   }
 }
 
