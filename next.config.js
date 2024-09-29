@@ -6,13 +6,17 @@ await import("./src/env.js")
 
 /** @type {import("next").NextConfig} */
 const config = {
-  ...(process.env.NODE_ENV === "production" && { output: "export" }),
-  basePath: "/me",
+  ...(process.env.NODE_ENV === "production" && {
+    output: "export",
+    basePath: "/me"
+  }),
   images: {
-    remotePatterns: [{
-      protocol: "https",
-      hostname: "i.ibb.co"
-    }],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co"
+      }
+    ],
     unoptimized: true
   }
 }

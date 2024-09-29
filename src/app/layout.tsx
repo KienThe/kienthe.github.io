@@ -2,12 +2,13 @@ import "~/styles/globals.css"
 
 import { GeistSans } from "geist/font/sans"
 import { type Metadata } from "next"
+import Favicon from "~/public/images/meme_sad_frog.png"
 import { Footer } from "./_components"
 
 export const metadata: Metadata = {
   title: "The Kien Dev",
   description: "The Kien Dev - A pull stack developer",
-  icons: [{ rel: "icon", url: "/images/meme_sad_frog.png" }]
+  icons: [{ rel: "icon", url: Favicon.src }]
 }
 
 export default function RootLayout({

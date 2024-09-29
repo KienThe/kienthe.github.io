@@ -1,4 +1,5 @@
 import Image from "next/image"
+import MemeImg from "~/public/images/meme.webp"
 
 export default async function Home() {
   return (
@@ -14,7 +15,7 @@ export default async function Home() {
 
       <div className="flex justify-center">
         <Image
-          src="/me/images/meme.webp"
+          src={MemeImg}
           alt="pull stack"
           className="img-fluid"
           width={800}
