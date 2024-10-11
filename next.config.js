@@ -8,7 +8,7 @@ await import("./src/env.js")
 const config = {
   ...(process.env.NODE_ENV === "production" && {
     output: "export",
-    basePath: "/me"
+    // basePath: "/me"
   }),
   images: {
     remotePatterns: [
