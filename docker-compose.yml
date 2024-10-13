@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+  app:
+    platform: "linux/amd64"
+    container_name: app
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app:latest
+    working_dir: /app
+    restart: always
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./prisma:/app/prisma
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - NODE_ENV=${NODE_ENV}
+    env_file:
+      - .env
+    networks:
+      - default 
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    driver: bridge

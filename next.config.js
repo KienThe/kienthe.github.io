@@ -6,10 +6,12 @@ await import("./src/env.js")
 
 /** @type {import("next").NextConfig} */
 const config = {
-  ...(process.env.NODE_ENV === "production" && {
-    output: "export",
-    // basePath: "/me"
-  }),
+  // ...(process.env.NODE_ENV === "production" && {
+  //   output: "export",
+  // }),
+  reactStrictMode: true,
+  swcMinify: true,
+  output: "standalone",
   images: {
     remotePatterns: [
       {
@@ -18,7 +20,15 @@ const config = {
       }
     ],
     unoptimized: true
-  }
+  },
+  webpack: (config, _) => ({
+    ...config,
+    watchOptions: {
+      ...config.watchOptions,
+      poll: 800,
+      aggregateTimeout: 300
+    }
+  })
 }
 
 export default config
