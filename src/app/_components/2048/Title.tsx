@@ -1,4 +1,6 @@
-import { type CSSProperties, useMemo } from "react"
+"use client"
+
+import { type CSSProperties, useEffect, useMemo, useState } from "react"
 import { twMerge } from "tailwind-merge"
 import {
   type Animation,
@@ -9,12 +11,12 @@ import {
   Direction
 } from "~/types"
 
-export interface TileProps {
+export interface TitleProps {
   value: number
   animations?: Animation[]
 }
 
-function tileTranslate(axis: "X" | "Y", value: number) {
+function titleTranslate(axis: "X" | "Y", value: number) {
   return `translate${axis}(calc(${value} * (1rem + 100%))`
 }
 
@@ -25,7 +27,13 @@ function findAnimation<T extends Animation>(
   return animations?.find((animation) => animation.type === type) as T
 }
 
-const Tile: React.FC<TileProps> = ({ value, animations }) => {
+const Title: React.FC<TitleProps> = ({ value, animations }) => {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   const moveAnimation = useMemo(
     () => findAnimation<AnimationMove>(animations, AnimationType.MOVE),
     [animations]
@@ -50,23 +58,23 @@ const Tile: React.FC<TileProps> = ({ value, animations }) => {
 
     switch (moveAnimation.direction) {
       case Direction.UP:
-        value.transform = tileTranslate("Y", -1 * moveAnimation.value)
+        value.transform = titleTranslate("Y", -1 * moveAnimation.value)
         break
       case Direction.DOWN:
-        value.transform = tileTranslate("Y", moveAnimation.value)
+        value.transform = titleTranslate("Y", moveAnimation.value)
         break
       case Direction.LEFT:
-        value.transform = tileTranslate("X", -1 * moveAnimation.value)
+        value.transform = titleTranslate("X", -1 * moveAnimation.value)
         break
       case Direction.RIGHT:
-        value.transform = tileTranslate("X", moveAnimation.value)
+        value.transform = titleTranslate("X", moveAnimation.value)
         break
     }
 
     return value
   }, [moveAnimation])
 
-  function tileColor(value: number): string {
+  function titleColor(value: number): string {
     switch (value) {
       case 2:
         return "bg-[#eee4da]"
@@ -95,13 +103,17 @@ const Tile: React.FC<TileProps> = ({ value, animations }) => {
     }
   }
 
+  if (!isClient) {
+    return null // Render nothing on the server
+  }
+
   return (
     <div className="leading-0 relative rounded-md  bg-[#cdc1b4] pb-[100%] text-lg">
       {value !== 0 && (
         <div
           className={twMerge(
             "leading-0 z-9 absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-md bg-[#3c3a32] text-sm font-bold text-black",
-            tileColor(value)
+            titleColor(value)
             // {
             //   new: !!newAnimation,
             //   merge: !!mergeAnimation
@@ -116,4 +128,4 @@ const Tile: React.FC<TileProps> = ({ value, animations }) => {
   )
 }
 
-export { Tile }
+export { Title }

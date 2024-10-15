@@ -1,4 +1,5 @@
 import { type BoardType } from "~/utils/board"
+import { type Animation } from "./Animation"
 
 // Define a type for the game state
 export interface GameState {
