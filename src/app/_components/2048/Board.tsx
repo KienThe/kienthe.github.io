@@ -2,9 +2,9 @@
 
 import { useAtom } from "jotai"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { gameStateAtom } from "~/stores"
+import { gameStateAtom, moveAction } from "~/stores"
 import { AnimationType, Direction, type Animation, type Point } from "~/types"
-import { type BoardType } from "~/utils"
+import { initializeBoard, type BoardType } from "~/utils"
 import { Overlay } from "./Overlay"
 import { Title } from "./Title"
 
@@ -16,7 +16,10 @@ const Board = () => {
 
   const animationDuration = 150
 
-  const onMove = useCallback((_direction: Direction) => null, [])
+  const onMove = useCallback(
+    (direction: Direction) => setGameState(moveAction(direction)),
+    [setGameState]
+  )
 
   const [renderedBoard, setRenderedBoard] = useState(board)
   const [renderedAnimations, setRenderedAnimations] = useState<Animation[]>([])
@@ -29,16 +32,16 @@ const Board = () => {
 
       switch (e.key) {
         case "ArrowDown":
-          // onMove(Direction.DOWN)
+          onMove(Direction.DOWN)
           break
         case "ArrowUp":
-          // onMove(Direction.UP)
+          onMove(Direction.UP)
           break
         case "ArrowLeft":
-          // onMove(Direction.LEFT)
+          onMove(Direction.LEFT)
           break
         case "ArrowRight":
-          // onMove(Direction.RIGHT)
+          onMove(Direction.RIGHT)
           break
       }
     }
@@ -79,6 +82,7 @@ const Board = () => {
       startPointerLocation.current = point
     }
   }, [])
+
   const onTouchMove = useCallback((e: React.TouchEvent) => {
     e.preventDefault()
     const touch = e.touches[0]
@@ -107,6 +111,7 @@ const Board = () => {
     const point: Point = { x: e.pageX, y: e.pageY }
     startPointerLocation.current = point
   }, [])
+
   const onMouseEnd = useCallback(
     (e: React.MouseEvent) => {
       if (startPointerLocation.current) {
@@ -146,6 +151,15 @@ const Board = () => {
 
     lastBoard.current = [...board]
   }, [animations, board, setRenderedBoard, setRenderedAnimations])
+
+  // useEffect(() => {
+  //   const update = initializeBoard(4)
+  //   setGameState((state) => ({
+  //     ...state,
+  //     board: update.board,
+  //     animations: update.animations
+  //   }))
+  // }, [setGameState])
 
   return (
     <div className="relative">
