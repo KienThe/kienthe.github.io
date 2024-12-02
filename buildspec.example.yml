@@ -1,0 +1,38 @@
+version: 0.2
+
+files:
+  - source: /
+    destination: /home/ec2-user/web/
+    overwrite: purge
+    file_exists_behavior: OVERWRITE
+
+env:
+  variables:
+    AWS_ACCOUNT_ID: <ACCOUNT_ID>
+    ECR_IMAGE_REGION: <ECR_IMAGE_REGION>
+    DOCKER_IMAGE_NAME: <DOCKER_IMAGE_NAME>
+    DOCKER_REPO: <DOCKER_REPO>
+
+phases:
+  pre_build:
+    commands:
+      - echo "1. Pre build step"
+      - aws ecr get-login-password --region $ECR_IMAGE_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com
+  build:
+    commands:
+      - echo "2. Build step"
+      - docker build -f Dockerfile -t $DOCKER_IMAGE_NAME .
+  post_build:
+    commands:
+      - echo 3. "Post build"
+      - echo "3.1 Push built-nginx to ECR ---------"
+      - docker tag $DOCKER_IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/DOCKER_REPO:latest
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/DOCKER_REPO:latest
+      - echo "3.3 Create image definitions --------"
+      - printf "{\"name\":\"app\",\"imageUri\":\"$AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/DOCKER_REPO:latest\"}]" > imagedefinitions.json
+      - cat imagedefinitions.json
+
+artifacts:
+  files:
+    - README.md
+    - imagedefinitions.json
