@@ -29,7 +29,7 @@ phases:
       - docker tag $DOCKER_IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/$DOCKER_REPO:latest
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/$DOCKER_REPO:latest
       - echo "3.3 Create image definitions --------"
-      - printf "[{\"name\":\"app\",\"imageUri\":\"$AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/$DOCKER_REPO:latest\"}]" > imagedefinitions.json
+      - printf "[{\"name\":\"web\",\"imageUri\":\"$AWS_ACCOUNT_ID.dkr.ecr.$ECR_IMAGE_REGION.amazonaws.com/$DOCKER_REPO:latest\"}]" > imagedefinitions.json
       - cat imagedefinitions.json
 
 artifacts:
