@@ -21,16 +21,16 @@ const initialGameState: GameState = {
   victoryDismissed: false,
   score: 0,
   best: 0,
-  moveId: new Date().getTime().toString()
+  moveId: new Date().getTime().toString(),
 }
 
 const getInitialState = () => {
-  const storedData = getStoredData()
+  // const storedData = getStoredData()
   const update = initializeBoard(4)
   return {
     ...initialGameState,
-    ...storedData,
-    board: storedData.board ?? update.board
+    // ...storedData,
+    board:  update.board
   }
 }
 
