@@ -17,8 +17,6 @@ services:
   app:
     platform: "linux/amd64"
     container_name: app_dev
-    depends_on:
-      - db
     build:
       context: .
       dockerfile: dev.Dockerfile
