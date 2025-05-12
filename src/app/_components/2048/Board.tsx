@@ -2,13 +2,16 @@
 
 import { useAtom } from "jotai"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { gameStateAtom, moveAction } from "~/stores"
+import { gameStateAtom, moveAction, resetAction } from "~/stores"
 import { AnimationType, Direction, type Animation, type Point } from "~/types"
-import { initializeBoard, type BoardType } from "~/utils"
+import { type BoardType } from "~/utils"
 import { Overlay } from "./Overlay"
 import { Title } from "./Title"
 
-const Board = () => {
+const INITIAL_BOARD_SIZE = 4
+const MAX_BOARD_SIZE = 10
+
+const BoardContent = () => {
   const [{ board, boardSize, animations }, setGameState] =
     useAtom(gameStateAtom)
   const startPointerLocation = useRef<Point>()
@@ -25,6 +28,12 @@ const Board = () => {
   const [renderedAnimations, setRenderedAnimations] = useState<Animation[]>([])
   const lastBoard = useRef<BoardType>([...board])
   const animationTimeout = useRef<number>()
+
+  useEffect(() => {
+    if (boardSize > MAX_BOARD_SIZE) {
+      setGameState(resetAction(MAX_BOARD_SIZE))
+    }
+  }, [boardSize, setGameState])
 
   useEffect(() => {
     const keydownListener = (e: KeyboardEvent) => {
@@ -91,6 +100,7 @@ const Board = () => {
       currentPointerLocation.current = point
     }
   }, [])
+
   const onTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       e.preventDefault()
@@ -150,16 +160,7 @@ const Board = () => {
     }
 
     lastBoard.current = [...board]
-  }, [animations, board, setRenderedBoard, setRenderedAnimations])
-
-  // useEffect(() => {
-  //   const update = initializeBoard(4)
-  //   setGameState((state) => ({
-  //     ...state,
-  //     board: update.board,
-  //     animations: update.animations
-  //   }))
-  // }, [setGameState])
+  }, [animations, board])
 
   return (
     <div className="relative">
@@ -172,6 +173,8 @@ const Board = () => {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         style={{
+          width: "500px",
+          height: "500px",
           gridTemplateColumns: `repeat(${boardSize}, 1fr)`
         }}
       >
@@ -188,6 +191,39 @@ const Board = () => {
       <Overlay />
     </div>
   )
+}
+
+const Board = () => {
+  const [mounted, setMounted] = useState(false)
+  const [, setGameState] = useAtom(gameStateAtom)
+
+  useEffect(() => {
+    setMounted(true)
+    setGameState(resetAction(INITIAL_BOARD_SIZE))
+  }, [setGameState])
+
+  if (!mounted) {
+    return (
+      <div className="relative">
+        <div
+          className={`border-3 grid touch-none select-none gap-4 rounded-md bg-[#bbada0] p-5`}
+          style={{
+            width: "500px",
+            height: "500px",
+            gridTemplateColumns: `repeat(${INITIAL_BOARD_SIZE}, 1fr)`
+          }}
+        >
+          {Array(INITIAL_BOARD_SIZE * INITIAL_BOARD_SIZE)
+            .fill(0)
+            .map((_, i) => (
+              <Title value={0} key={i} />
+            ))}
+        </div>
+      </div>
+    )
+  }
+
+  return <BoardContent />
 }
 
 export { Board }

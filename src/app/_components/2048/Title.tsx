@@ -113,11 +113,11 @@ const Title: React.FC<TitleProps> = ({ value, animations }) => {
         <div
           className={twMerge(
             "leading-0 z-9 absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-md bg-[#3c3a32] text-sm font-bold text-black",
-            titleColor(value)
-            // {
-            //   new: !!newAnimation,
-            //   merge: !!mergeAnimation
-            // }
+            titleColor(value),
+            {
+              new: !!newAnimation,
+              merge: !!mergeAnimation
+            }
           )}
           style={style}
         >

@@ -1,4 +1,5 @@
-import { atomWithReducer } from "jotai/utils"
+import { atom } from "jotai"
+import React from "react"
 import {
   ActionType,
   type ActionModel,
@@ -13,88 +14,109 @@ import {
   updateBoard
 } from "~/utils"
 
-const initialGameState: GameState = {
-  boardSize: 4,
-  board: [],
-  defeat: false,
-  victory: false,
-  victoryDismissed: false,
-  score: 0,
-  best: 0,
-  moveId: new Date().getTime().toString()
-}
+// Initialize state from localStorage
+const storedData = getStoredData()
+const initialBoardSize = storedData.boardSize ?? 4
+const initialBoard = storedData.board ?? []
+const initialScore = storedData.score ?? 0
+const initialBest = storedData.best ?? 0
+const initialDefeat = storedData.defeat ?? false
+const initialVictoryDismissed = storedData.victoryDismissed ?? false
 
-const getInitialState = () => {
-  const storedData = getStoredData()
-  const update = initializeBoard(4)
-  return {
-    ...initialGameState,
-    ...storedData,
-    board: storedData.board ?? update.board
-  }
-}
+// Separate atoms for different parts of the state
+export const boardSizeAtom = atom(initialBoardSize)
+export const boardAtom = atom<number[]>(initialBoard)
+export const scoreAtom = atom(initialScore)
+export const bestScoreAtom = atom(initialBest)
+export const defeatAtom = atom(initialDefeat)
+export const victoryAtom = atom(false)
+export const victoryDismissedAtom = atom(initialVictoryDismissed)
+export const moveIdAtom = atom(new Date().getTime().toString())
+export const previousBoardAtom = atom<number[] | undefined>(undefined)
+export const animationsAtom = atom<GameState["animations"]>(undefined)
+export const scoreIncreaseAtom = atom<number | undefined>(undefined)
 
-function gameReducer(state = initialGameState, action: ActionModel) {
-  const newState = { ...state }
+// Derived atom for the complete game state
+export const gameStateAtom = atom(
+  (get) => ({
+    boardSize: get(boardSizeAtom),
+    board: get(boardAtom),
+    defeat: get(defeatAtom),
+    victory: get(victoryAtom),
+    victoryDismissed: get(victoryDismissedAtom),
+    score: get(scoreAtom),
+    best: get(bestScoreAtom),
+    moveId: get(moveIdAtom),
+    previousBoard: get(previousBoardAtom),
+    animations: get(animationsAtom),
+    scoreIncrease: get(scoreIncreaseAtom)
+  }),
+  (get, set, action: ActionModel) => {
+    const currentState = get(gameStateAtom)
 
-  switch (action.type) {
-    case ActionType.RESET:
-      {
-        const size = action.value ?? newState.boardSize
+    switch (action.type) {
+      case ActionType.RESET: {
+        const size = action.value ?? currentState.boardSize
         const update = initializeBoard(size)
-        newState.boardSize = size
-        newState.board = update.board
-        newState.score = 0
-        newState.animations = update.animations
-        newState.previousBoard = undefined
-        newState.victory = false
-        newState.victoryDismissed = false
-      }
-      break
-    case ActionType.MOVE:
-      {
-        if (newState.defeat) {
-          break
-        }
-
-        const direction = action.value as Direction
-        const update = updateBoard(newState.board, direction)
-        newState.previousBoard = [...newState.board]
-        newState.board = update.board
-        newState.score += update.scoreIncrease
-        newState.animations = update.animations
-        newState.scoreIncrease = update.scoreIncrease
-        newState.moveId = new Date().getTime().toString()
-      }
-      break
-    case ActionType.UNDO:
-      if (!newState.previousBoard) {
+        set(boardSizeAtom, size)
+        set(boardAtom, update.board)
+        set(scoreAtom, 0)
+        set(animationsAtom, update.animations)
+        set(previousBoardAtom, undefined)
+        set(victoryAtom, false)
+        set(victoryDismissedAtom, false)
         break
       }
+      case ActionType.MOVE: {
+        if (get(defeatAtom)) break
 
-      newState.board = newState.previousBoard
-      newState.previousBoard = undefined
-
-      if (newState.scoreIncrease) {
-        newState.score -= newState.scoreIncrease
+        const direction = action.value as Direction
+        const update = updateBoard(get(boardAtom), direction)
+        set(previousBoardAtom, [...get(boardAtom)])
+        set(boardAtom, update.board)
+        set(scoreAtom, (prev) => prev + update.scoreIncrease)
+        set(animationsAtom, update.animations)
+        set(scoreIncreaseAtom, update.scoreIncrease)
+        set(moveIdAtom, new Date().getTime().toString())
+        break
       }
-      break
-    case ActionType.DISMISS:
-      newState.victoryDismissed = true
-      break
-    default:
-      return state
+      case ActionType.UNDO: {
+        const prevBoard = get(previousBoardAtom)
+        if (!prevBoard) break
+
+        set(boardAtom, prevBoard)
+        set(previousBoardAtom, undefined)
+        const scoreIncrease = get(scoreIncreaseAtom)
+        if (scoreIncrease) {
+          set(scoreAtom, (prev) => prev - scoreIncrease)
+        }
+        break
+      }
+      case ActionType.DISMISS: {
+        set(victoryDismissedAtom, true)
+        break
+      }
+    }
+
+    // Update best score if needed
+    const currentScore = get(scoreAtom)
+    const currentBest = get(bestScoreAtom)
+    if (currentScore > currentBest) {
+      set(bestScoreAtom, currentScore)
+    }
+
+    // Update game state
+    const currentBoard = get(boardAtom)
+    set(defeatAtom, !movePossible(currentBoard))
+    set(victoryAtom, !!currentBoard.find((value) => value === 2048))
+
+    // Save to localStorage
+    setStoredData(get(gameStateAtom))
   }
+)
 
-  if (newState.score > newState.best) {
-    newState.best = newState.score
-  }
+const Board = React.memo(() => {
+  // ... code như cũ
+})
 
-  newState.defeat = !movePossible(newState.board)
-  newState.victory = !!newState.board.find((value) => value === 2048)
-  setStoredData(newState)
-
-  return newState
-}
-
-export const gameStateAtom = atomWithReducer(getInitialState(), gameReducer)
+export { Board }

@@ -12,18 +12,6 @@ const Footer: React.FC = () => {
         <strong>merge into one!</strong> <br />
         Goal is to get a tile with the number <strong>2048</strong>.
       </p>
-      <p>
-        Built by{" "}
-        <a
-          href="https://github.com/anushwar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-bold underline"
-        >
-          Anushwar Sharma
-        </a>
-        .
-      </p>
     </div>
   )
 }
