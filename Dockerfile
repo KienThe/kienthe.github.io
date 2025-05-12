@@ -1,61 +1,59 @@
-##### BASE
-FROM --platform=linux/amd64 node:20-alpine AS base
+FROM node:20-slim
 
-##### DEPENDENCIES
+# Install dependencies for Puppeteer and Node.js native modules
+RUN apt-get update && apt-get install -y \
+    chromium \
+    fonts-ipafont-gothic \
+    fonts-wqy-zenhei \
+    fonts-thai-tlwg \
+    fonts-kacst \
+    fonts-freefont-ttf \
+    python3 \
+    make \
+    g++ \
+    libcups2 \
+    libxss1 \
+    libxtst6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxi6 \
+    libxtst6 \
+    libnss3 \
+    libxrandr2 \
+    libasound2 \
+    libpangocairo-1.0-0 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libgtk-3-0 \
+    libgbm1 \
+    libxshmfence1 \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
-FROM base AS deps
-RUN apk add --no-cache libc6-compat openssl
+# Set environment variables for Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV NODE_ENV=production
+
 WORKDIR /app
 
-# Install Prisma Client - remove if not using Prisma
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
 
-COPY prisma ./
+# Install dependencies
+RUN npm install -g pnpm && pnpm install --no-frozen-lockfile
 
-# Install dependencies based on the preferred package manager
-
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-
-RUN \
-    if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm i; \
-    elif [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-    elif [ -f package-lock.json ]; then npm ci; \
-    else echo "Lockfile not found." && exit 1; \
-    fi
-
-##### BUILDER
-
-FROM --platform=linux/amd64 node:20-alpine AS builder
-ARG DATABASE_URL
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+# Copy source code
 COPY . .
 
-# ENV NEXT_TELEMETRY_DISABLED 1
+# Build the application
+RUN pnpm build
 
-RUN \
-    if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && SKIP_ENV_VALIDATION=1 pnpm run build; \
-    elif [ -f yarn.lock ]; then SKIP_ENV_VALIDATION=1 yarn build; \
-    elif [ -f package-lock.json ]; then SKIP_ENV_VALIDATION=1 npm run build; \
-    else echo "Lockfile not found." && exit 1; \
-    fi
-
-##### RUNNER
-
-FROM --platform=linux/amd64 gcr.io/distroless/nodejs20-debian12 AS runner
-WORKDIR /app
-
-ENV NODE_ENV production
-
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
+# Expose port
 EXPOSE 3000
-ENV PORT 3000
 
-CMD ["server.js"]
+# Start the application
+CMD ["pnpm", "start"]

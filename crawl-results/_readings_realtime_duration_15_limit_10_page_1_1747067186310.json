@@ -1,0 +1,606 @@
+{
+  "data": [
+    {
+      "book": {
+        "id": 133656,
+        "name": "Nô Lệ Bóng Tối",
+        "slug": "no-le-bong-toi",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/no-le-bong-toi",
+        "note": "Cầu phiếu đề cử ạ, cảm ơn mọi người ạ.",
+        "status_name": "Còn tiếp",
+        "first_chapter": 19778148,
+        "latest_chapter": 22637533,
+        "latest_index": 2340,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/no-le-bong-toi/150.jpg?1731995470",
+          "300": "https://static.cdnno.com/poster/no-le-bong-toi/300.jpg?1731995470",
+          "600": "https://static.cdnno.com/poster/no-le-bong-toi/600.jpg?1731995470",
+          "default": "https://static.cdnno.com/poster/no-le-bong-toi/default.jpg?1731995470"
+        },
+        "synopsis": "Shadow Slave - Nô Lệ Bóng Tối\n\n[Giới thiệu]\n\nLớn lên trong cảnh nghèo khó, Sunny chưa bao giờ kỳ vọng điều gì tốt đẹp từ cuộc sống. \n\nTuy nhiên, ngay cả cậu cũng không ngờ rằng mình lại được lựa chọn bởi Nightmare Spell (Ác Mộng Ma Pháp) và trở thành một trong những Awakened (Người Thức Tỉnh)– một nhóm tinh anh sở hữu năng lực siêu nhiên. \n\nBị đưa vào một magical world (thế giới ma thuật) đổ nát, Sunny phải đối mặt với những quái vật khủng khiếp – và cả những Người Thức Tỉnh khác – trong một trận chiến sinh tồn chết chóc.\n\nTệ hơn nữa là, sức mạnh thần thánh mà cậu nhận được lại có một tác dụng phụ nhỏ, nhưng có khả năng gây ra tử vong chí mạng…\n\n----\n\nLink wiki Rank/Level: https://docs.google.com/spreadsheets/d/1-0VNavduwb21_G9D_lBvq7mBEs1-UGeWdz197M4MBH8/edit\n\n----\n[CVT - Review và đôi lời]\n\n- Đây là truyện mình sẽ dịch, không phải convert, trang gốc đã ra khoảng hơn 1k9 chương và vẫn còn ra đều, truyện luôn nằm top 1 - 3 các bảng xếp hạng Novel ở phương Tây, về lượt đọc lẫn đánh giá.\n\n-  Đây là một trong những bộ truyện xuất sắc nhất mà mình từng đọc. \n\n- Nhân vật chính lẫn phụ đều vô cùng thông minh, diễn biến tâm lý được khắc họa rất chân thực và sâu sắc. Thế giới trong truyện vô cùng rộng lớn, hệ thống sức mạnh thì mới lạ và độc đáo. Mỗi nhân vật, dù mạnh đến đâu, đều có một điểm yếu gọi là *Flaw* (mình dịch là \"khuyết điểm\" hoặc \"điểm yếu\"). Đặc biệt, mỗi nhân vật đều có năng lực riêng, không ai giống ai cả. \n\n- Nữ chính không phải bình hoa, có cá tính, trí tuệ sức mạnh, mình cực kì thích nhân vật nữ chính, thích cái cách tác giả miêu tả nội tâm nhân vật qua từng thời kỳ, từ niên thiếu cho tới lúc trưởng thành sau này, và tình cảm được hình thành không dễ dàng một tí nào.\n\n- Dàn nhân vật phụ đều có đất diễn, chứ không phải như NPC lướt qua, xây dựng rất đỉnh, đều có chiều sâu.\n\n- Bộ này âm mưu, tình tiết, bố cục rất nhiều, rất sâu, rất nhiều chi tiết từ đầu truyện tưởng chừng như rất bình thường, nhưng thực tế lại không.\n\n- Map rộng, World Building cực kỳ xuất sắc, khá mới, không theo lối mòn, tới chương mới nhất vẫn có rất nhiều điều để khai thác, tóm lại đây là một trong những bộ truyện hay nhất mình từng đọc trong suốt hơn 10 năm qua. Mọi người nên đọc qua khoảng 50-100 chương đầu, hoặc quyển 1, lúc đó sẽ vào mạch truyện và dễ đọc hơn rất nhiều.\n\n---\nMình có thêm một số ảnh minh họa về các nhân vật ở dưới phần hình hảnh, gần chỗ bình luận.\n\n---\nDanh sách các quyển đã dịch:\n\nQuyển 1 - [Đứa Con Của Bóng Tối] - [Chương 1 - > Chương 95]\nQuyển 2 - [Con Quỷ Của Sự Thay Đổi] - [Chương 96 - > Chương 350]\nQuyển 3 - [Quần Đảo Xiềng Xích] - [Chương 351 - > Chương 600]\nQuyển 4 - [Kẻ Phá Vỡ Xiềng Xích] - [Chương 601 - > Chương 750]\nQuyển 5 - [Đêm Kinh Hoàng] - [Chương 751 - > Chương 1060]\nQuyển 6 - [Tất Cả Ác Quỷ Đã Đến] - [Chương 1061 --> Chương 1230]\nQuyển 7 - [Lăng Mộ Của Ariel] - [Chương 1231 --> Chương 1590]\nQuyển 8 - [Lord Shadow (Chúa Tể Bóng Tối)] - [Chương 1591--> Chương 1840]\nQuyển 9 - [Throne of War (Ngai Vàng Chiến Tranh] - [Chương 1841--> Chương 2260]\nQuyển 10 - [] - [Chương 2261--> Chương ....]",
+        "vote_count": 12235,
+        "review_score": "4.952",
+        "review_count": 234,
+        "comment_count": 3697,
+        "chapter_count": 2340,
+        "view_count": 6129631,
+        "word_count": 3606634,
+        "created_at": "2024-10-13T08:48:09.000000Z",
+        "updated_at": "2025-05-12T16:11:28.000000Z",
+        "new_chap_at": "2025-05-12T02:26:32.000000Z",
+        "published_at": "2024-10-13T08:48:09.000000Z",
+        "published": 1,
+        "user_id": 1000045,
+        "object_type": "Book",
+        "bookmark_count": 11973,
+        "chapter_per_week": 12,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 18437,
+          "name": "Guiltythree",
+          "avatar": null,
+          "local_name": "Guiltythree",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 20,
+            "name": "Kỳ Ảo",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 137
+    },
+    {
+      "book": {
+        "id": 138848,
+        "name": "Mù Lòa Tróc Đao Nhân: Bắt Đầu Max Cấp Cửu Dương Thần Công",
+        "slug": "mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong",
+        "note": "",
+        "status_name": "Còn tiếp",
+        "first_chapter": 21547153,
+        "latest_chapter": 22640967,
+        "latest_index": 517,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong/150.jpg?1743043985",
+          "300": "https://static.cdnno.com/poster/mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong/300.jpg?1743043985",
+          "600": "https://static.cdnno.com/poster/mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong/600.jpg?1743043985",
+          "default": "https://static.cdnno.com/poster/mu-loa-troc-dao-nhan-bat-dau-max-cap-cuu-duong-than-cong/default.jpg?1743043985"
+        },
+        "synopsis": "Cố Mạch xuyên qua đến võ hiệp thế giới, thành một cái mù lòa.\n\n\tCũng may hắn có một cái [ tróc đao nhân hệ thống ], chỉ cần chém giết tội phạm truy nã, liền có thể thu được đủ loại võ lâm tuyệt học, lại trực tiếp max cấp, bắt đầu liền là max cấp Cửu Dương Thần Công.\n\n\tTừ nay về sau, Cố Mạch mở ra một đầu oanh oanh liệt liệt tróc đao nhân con đường, dò xét huyền án, phá hạo kiếp, tru tà ma. . .\n\n\tTrên giang hồ, nhiều một cái cao thâm mạt trắc mù lòa.\n\n\tChỉ cần tiền đúng chỗ, Thiên Vương lão tử cũng chơi phế.\n\n\t[ chém giết mã tặc thủ lĩnh, ban thưởng Giáng Long Thập Bát Chưởng ]\n\n\t[ chém giết tuyệt thế ma đầu, ban thưởng Long Thần Công ]\n\n\t[ chém giết phía sau màn hắc thủ, ban thưởng Như Lai Thần Chưởng ]\n\n\tTa gọi Cố Mạch, là cái tróc đao nhân, muốn tới lội cái này giang hồ nước đục!",
+        "vote_count": 741,
+        "review_score": "4.986",
+        "review_count": 37,
+        "comment_count": 574,
+        "chapter_count": 517,
+        "view_count": 1045462,
+        "word_count": 899251,
+        "created_at": "2025-02-25T13:10:01.000000Z",
+        "updated_at": "2025-05-12T16:16:51.000000Z",
+        "new_chap_at": "2025-05-12T06:11:43.000000Z",
+        "published_at": "2025-02-25T13:10:01.000000Z",
+        "published": 1,
+        "user_id": 1000080,
+        "object_type": "Book",
+        "bookmark_count": 3389,
+        "chapter_per_week": 44,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 21864,
+          "name": "Kim Nhật Vấn Đạo",
+          "avatar": null,
+          "local_name": "今日问道",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 3,
+            "name": "Huyền Huyễn",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 130
+    },
+    {
+      "book": {
+        "id": 123084,
+        "name": "Trận Hỏi Trường Sinh",
+        "slug": "tran-hoi-truong-sinh",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/tran-hoi-truong-sinh",
+        "note": "",
+        "status_name": "Còn tiếp",
+        "first_chapter": 17334879,
+        "latest_chapter": 22644874,
+        "latest_index": 1703,
+        "high_quality": 1,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/tran-hoi-truong-sinh/150.jpg?1714986700",
+          "300": "https://static.cdnno.com/poster/tran-hoi-truong-sinh/300.jpg?1714986700",
+          "600": "https://static.cdnno.com/poster/tran-hoi-truong-sinh/600.jpg?1714986700",
+          "default": "https://static.cdnno.com/poster/tran-hoi-truong-sinh/default.jpg?1714986700"
+        },
+        "synopsis": "Huyễn Trận, Kiếm Trận, Khốn Trận, Sát Trận, Mê Trận, Tuyệt Trận, Tiên Trận, cấu đại thiên Trận Đạo.\n\n\tLưỡng Nghi, Tam Tài, Tứ Tượng, Ngũ Hành, Lục Hợp, Thất Tinh, Bát Quái, diễn chư thiên Trận Lưu.\n\n\tLấy Thần Thức Chứng Đạo, ngộ Trận Pháp phi tiên.\n\n\tNhất niệm tế thiên hạ, cầu đạo hỏi Trường Sinh.\n\n\t-----------------------------------\n\n\t(PS. Nhân vật chính là tu giới thổ dân, từ mười tuổi bắt đầu viết, xuyên qua thiết lập có cũng được mà không có cũng không sao, không thích ngộ nhập. )",
+        "vote_count": 17571,
+        "review_score": "4.955",
+        "review_count": 217,
+        "comment_count": 6359,
+        "chapter_count": 1703,
+        "view_count": 5703327,
+        "word_count": 3713352,
+        "created_at": "2024-01-19T07:13:15.000000Z",
+        "updated_at": "2025-05-12T16:17:15.000000Z",
+        "new_chap_at": "2025-05-12T10:31:21.000000Z",
+        "published_at": "2024-01-19T07:13:15.000000Z",
+        "published": 1,
+        "user_id": 1025157,
+        "object_type": "Book",
+        "bookmark_count": 9871,
+        "chapter_per_week": 14,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 11486,
+          "name": "Quan Hư",
+          "avatar": null,
+          "local_name": "观虚",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 2,
+            "name": "Tiên Hiệp",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 91
+    },
+    {
+      "book": {
+        "id": 127306,
+        "name": "Cẩu Thả Thành Thánh Nhân, Tiên Quan Triệu Ta Chăm Ngựa",
+        "slug": "cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua",
+        "note": "",
+        "status_name": "Còn tiếp",
+        "first_chapter": 18220321,
+        "latest_chapter": 22647322,
+        "latest_index": 840,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua/150.jpg?1719031730",
+          "300": "https://static.cdnno.com/poster/cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua/300.jpg?1719031730",
+          "600": "https://static.cdnno.com/poster/cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua/600.jpg?1719031730",
+          "default": "https://static.cdnno.com/poster/cau-tha-thanh-thanh-nhan-tien-quan-trieu-ta-cham-ngua/default.jpg?1719031730"
+        },
+        "synopsis": "Thân là gia đinh Cố An tuổi nhỏ lúc ngoài ý muốn đánh vỡ một vò linh hoa, tại hắn thấp thỏm lo âu lúc phát hiện mình vậy mà chiếm lấy mười hai năm tuổi thọ!\n\n\tMột đầu con đường trường sinh như vậy tại Cố An trước mắt trải rộng ra!\n\n\tVì an ổn tu tiên, Cố An lựa chọn trở thành Thái Huyền môn tạp dịch đệ tử, mỗi ngày gieo trồng dược thảo, dùng chiếm lấy dược thảo tuổi thọ tiến hành tu luyện.\n\n\tThông qua tuổi thọ diễn hóa, trụ cột của hắn công pháp không ngừng diễn hóa, theo cơ sở pháp môn thôi diễn thành Thông Thiên Thần Thông!\n\n\tKỷ nguyên thay đổi, đấu chuyển tinh di, nhân gian thương hải tang điền.\n\n\tNhân gian dần dần có tiên nhân truyền thuyết.\n\n\tĐược xưng là tiên nhân Cố An hao phí một nửa tuổi thọ, trợ tu vi nhảy vọt Tiên đạo cực hạn, chứng được Thánh Nhân chi cảnh, áp đảo trên Thiên Đạo.\n\n\tNhưng mà, một ngày, một tên tiên phong đạo cốt Bạch y lão giả đến đây bái phỏng Cố An.\n\n\t\"Bần đạo chính là trên trời Huyền Thanh Tinh Quân, Thái Hạo Thiên Đế nghe nói đạo hữu ở nhân gian nhiều làm việc thiện sự tình, nhiều lần cứu vãn nhân gian chúng sinh, công đức vô lượng, đặc phái bần đạo Hạ Giới tới triệu đạo hữu đứng hàng tiên ban, Nhậm tiên chức, thần câu thiên quan.\"\n\n\t\"Xin hỏi thần câu thiên quan là chức gì vụ?\"\n\n\t\"Thiên Đình có thần câu, có thể nhảy vọt thiên địa, trốn vào Âm Dương, thần câu thiên quan liền là phụ trách chiếu khán, nuôi nấng này chút thần câu.\"\n\n\tHả? Chăm ngựa?\n\nCảnh giới: Luyện Khí, Trúc Cơ, Kết Đan, Nguyên Anh, Hóa Thần, Độ Hư, Hợp Thể, Huyền Tâm, Đại Thừa, Niết Bàn, Tán Tiên, Du Tiên, Thiên Địa Phi Tiên, Tiêu Dao Nguyên Tiên, Diệu Pháp Linh Tiên, Đạo Hư Huyền Tiên, Thần Niệm Chân Tiên, Tự Tại, Đạo Tạng, Huyền Nguyên.",
+        "vote_count": 16484,
+        "review_score": "4.889",
+        "review_count": 138,
+        "comment_count": 7001,
+        "chapter_count": 840,
+        "view_count": 3584600,
+        "word_count": 1872609,
+        "created_at": "2024-05-21T01:08:34.000000Z",
+        "updated_at": "2025-05-12T16:24:25.000000Z",
+        "new_chap_at": "2025-05-12T14:03:37.000000Z",
+        "published_at": "2024-05-21T01:08:34.000000Z",
+        "published": 1,
+        "user_id": 1000043,
+        "object_type": "Book",
+        "bookmark_count": 10528,
+        "chapter_per_week": 14,
+        "ready_for_sale": 0,
+        "discount_price": 100,
+        "discount": 0,
+        "author": {
+          "id": 665,
+          "name": "Nhâm Ngã Tiếu",
+          "avatar": null,
+          "local_name": "任我笑",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 2,
+            "name": "Tiên Hiệp",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 83
+    },
+    {
+      "book": {
+        "id": 100412,
+        "name": "Mục Thần Ký",
+        "slug": "muc-than-ky",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 2,
+        "link": "https://metruyencv.com/truyen/muc-than-ky",
+        "note": "",
+        "status_name": "Hoàn thành",
+        "first_chapter": 10426139,
+        "latest_chapter": 10427982,
+        "latest_index": 1844,
+        "high_quality": 0,
+        "manager_pick": 0,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/muc-than-ky/150.jpg?1737721894",
+          "300": "https://static.cdnno.com/poster/muc-than-ky/300.jpg?1737721894",
+          "600": "https://static.cdnno.com/poster/muc-than-ky/600.jpg?1737721894",
+          "default": "https://static.cdnno.com/poster/muc-than-ky/default.jpg?1737721894"
+        },
+        "synopsis": "Đại Khư tổ huấn nói, trời tối, đừng đi ra ngoài.\n\nĐại Khư Tàn Lão thôn mấy kẻ già yếu tàn tật từ bờ sông nhặt được một đứa bé, lấy tên Tần Mục, ngậm đắng nuốt cay đem hắn nuôi lớn. Một ngày này màn đêm buông xuống, bóng tối bao trùm Đại Khư, Tần Mục đi ra cửa chính. . .\n\nLàm trong gió xuân nhộn nhạo nhân vật phản diện đi!\n\nMù lòa nói với hắn.\n\nTần Mục nhân vật phản diện chi lộ, ngay tại quật khởi!",
+        "vote_count": 1865,
+        "review_score": "4.945",
+        "review_count": 26,
+        "comment_count": 310,
+        "chapter_count": 1844,
+        "view_count": 3484875,
+        "word_count": 7742212,
+        "created_at": "2020-03-26T06:53:13.000000Z",
+        "updated_at": "2025-05-12T16:02:48.000000Z",
+        "new_chap_at": "2019-11-12T12:11:42.000000Z",
+        "published_at": "2020-03-26T06:53:13.000000Z",
+        "published": 1,
+        "user_id": 1000015,
+        "object_type": "Book",
+        "bookmark_count": 6752,
+        "chapter_per_week": 0,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 358,
+          "name": "Trạch Trư",
+          "avatar": null,
+          "local_name": "宅猪",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 3,
+            "name": "Huyền Huyễn",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 71
+    },
+    {
+      "book": {
+        "id": 124704,
+        "name": "Từ Hài Nhi Bắt Đầu Nhập Đạo",
+        "slug": "tu-hai-nhi-bat-dau-nhap-dao",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/tu-hai-nhi-bat-dau-nhap-dao",
+        "note": "Đề Cử Truyện Hay:\n- Tuyệt Thế Dược Thần \n- Mao Sơn Tróc Quỷ Nhân \n- Tu Tiên: Ta Tại Hiện Đại Đi Du Học\n- Long Tàng\n- Tuyệt Thế Linh Thần\n- Luyện Sai Tà Công, Pháp Thiên Tượng Địa",
+        "status_name": "Còn tiếp",
+        "first_chapter": 17640004,
+        "latest_chapter": 22643237,
+        "latest_index": 1076,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/tu-hai-nhi-bat-dau-nhap-dao/150.jpg?1714738581",
+          "300": "https://static.cdnno.com/poster/tu-hai-nhi-bat-dau-nhap-dao/300.jpg?1714738581",
+          "600": "https://static.cdnno.com/poster/tu-hai-nhi-bat-dau-nhap-dao/600.jpg?1714738581",
+          "default": "https://static.cdnno.com/poster/tu-hai-nhi-bat-dau-nhap-dao/default.jpg?1714738581"
+        },
+        "synopsis": "Loạn thế cầu sinh, thịnh thế cầu tên.\n\n\tDãi dầu sương gió Đại Vũ triều vẫn ở vào thịnh thế thời kì.\n\n\tTây Bắc, có thiếu niên đi bộ chín ngàn dặm, độc thân trảm đại yêu, tranh một đời công danh.\n\n\tLong Hồ, có Bất Thế Tông Sư đi nhân gian, khai tông lập phái, muôn đời lưu danh.\n\n\tĐế đô, có Thánh Nhân truyền đạo ngàn vạn, giáo đồ trải rộng các châu, lưu danh thiên cổ.\n\n\tMà tại Thanh Châu thành bên trong, một chỗ trong tiểu viện.\n\n\tCó người lại chỉ muốn yên lặng, hạ xong mỗi một bàn cờ.\n\n\t. . .\n\n\tKiếm lên Long Yên ba ngàn dặm, một kiếm chém hết Cửu Châu thành!\n\n\tThế gian vạn pháp, duy ta, nhập đạo.\n\n\t. . .\n\n\tQuyển sách lại tên  « vạn thế chi danh »  « không thấy ngươi luyện kiếm, ngươi làm sao lại thành Kiếm Thần »  « Hạo Thiên Đế »\n\n\t【  nhẹ nhõm hài hước ] 【  võ đạo bảng ] 【  nghệ thuật đại sư ]\n\n☆☆☆ Hệ thống tu luyện ☆☆☆\n1- Thông Lực\n2- Chu Thiên\n3- Kế Hồn\n4- Thần Du\n5- Thập Ngũ Lý\n6- Thiên Nhân\n7- Tam Bất Hủ (bất phôi, bất diệt, bất suy)\n8- Tứ Lập (đạo tâm, nghịch mệnh, tuyệt học, thái bình đạo cảnh)\n9- Văn Đạo",
+        "vote_count": 18927,
+        "review_score": "4.694",
+        "review_count": 433,
+        "comment_count": 7346,
+        "chapter_count": 1074,
+        "view_count": 6821540,
+        "word_count": 2360956,
+        "created_at": "2024-03-18T17:55:44.000000Z",
+        "updated_at": "2025-05-12T16:21:56.000000Z",
+        "new_chap_at": "2025-05-12T08:31:18.000000Z",
+        "published_at": "2024-03-18T17:55:44.000000Z",
+        "published": 1,
+        "user_id": 1000038,
+        "object_type": "Book",
+        "bookmark_count": 13187,
+        "chapter_per_week": 13,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 1214,
+          "name": "Cổ Hi",
+          "avatar": null,
+          "local_name": "古羲",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 3,
+            "name": "Huyền Huyễn",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 68
+    },
+    {
+      "book": {
+        "id": 106542,
+        "name": "Xích Tâm Tuần Thiên",
+        "slug": "xich-tam-tuan-thien",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/xich-tam-tuan-thien",
+        "note": "",
+        "status_name": "Còn tiếp",
+        "first_chapter": 13371716,
+        "latest_chapter": 22639988,
+        "latest_index": 2756,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/xich-tam-tuan-thien/150.jpg?1718940378",
+          "300": "https://static.cdnno.com/poster/xich-tam-tuan-thien/300.jpg?1718940378",
+          "600": "https://static.cdnno.com/poster/xich-tam-tuan-thien/600.jpg?1718940378",
+          "default": "https://static.cdnno.com/poster/xich-tam-tuan-thien/default.jpg?1718940378"
+        },
+        "synopsis": "Thời đại thượng cổ, Yêu tộc tuyệt tích. Thời đại cận cổ, Long tộc biến mất. Thần đạo đang thịnh thời đại đã như khói, phi kiếm đỉnh cao nhất thời đại cuối cùng trầm luân. . .\n\nThế giới này xảy ra chuyện gì?\n\nCái kia mai táng tại bên trong dòng sông thời gian chân tướng lịch sử, ai đến lắng nghe?\n\nNúi sông ngàn dặm viết thây nằm, càn khôn trăm năm tô lại hổ đói.\n\nThiên địa chí công như vô tình,\n\nTa có xích tâm một viên, lấy tuần thiên!\n-----------------------\nCảnh giới tu luyện chia làm cửu cấp, cửu thấp nhất:\nDu Mạch cảnh -> Chu Thiên cảnh -> Thông Thiên cảnh -> Đằng Long cảnh -> Nội Phủ cảnh -> Ngoại Lâu Cảnh -> Thần Lâm cảnh-> Động Chân cảnh--> Diễn Đạo cảnh---> Siêu Thoát.....\n------------\nCố sự bối cảnh\n\nKhương Vọng xuất thân thành Phong Lâm thuộc nước Trang, vốn là sinh tại thế gia buôn bán dược, mẫu thân c·hết sớm, đến sau phụ thân c·hết bệnh cơ hồ hao hết trong nhà một điểm cuối cùng tiền để dành, từ đây nghèo rớt mồng tơi, lẻ loi một mình từ bên trong cạnh tranh ngàn dặm chỉ lấy một thi được đạo viện, tại bên trong ngoại viện kịch liệt cạnh tranh độc chiếm vị trí đầu, mới rốt cục lần thứ nhất bắt lấy chìa khoá siêu phàm, nhưng theo sát phía sau. . . Là hạ độc, vây g·iết bị hảo hữu hãm hại, ẩn thân ở bên trong đạo quan. Đúng lúc Sở quốc thiên kiêu Tả Quang Liệt đi qua, bị người bày trận chặn g·iết. ở kế thừa nó di vật, Khương Vọng báo thù thành công, bắt đầu chính mình tu đạo dài đằng đẵng kiếp sống.\n-------------------\nQuyển 1: Trăng Sáng Trên Bầu Trời (Minh Nguyệt Tại Thiên) - 143 Chương (1-143)\nTựa đề :Rõ ràng như trăng, lúc nào có thể xuyết\n\nQuyển 2: Từ Đây Vô Tâm Yêu Đêm (Tòng Thử Vô Tâm Ái Lương Dạ)- 192 Chương (144-338)\nTựa đề: Từ đây vô tâm thích đêm, mặc hắn dưới ánh trăng tây lầu\n\nQuyển 3: Đánh Vỡ Tinh Hà Đã Chân Trời (Tràng Phá Tinh Hà Dĩ Thiên Nhai) - 207 Chương (339-545)\nTựa đề: Đi đường khó, đi đường khó, thân này chỉ hướng chỗ càng cao hơn\nĐăng thiên Lãm Nguyệt không đủ khen, đánh vỡ tinh hà đã thiên nhai\n\nQuyển 4: Hào Kiệt Nâng (Hào Kiệt Cử) - 191 Chương (546-736)\nTựa đề: Từ xưa đến nay hào kiệt cử, ngồi xuống ai không trượng phu\nKhẳng khái đáp dạ rút kiếm lên, không tiếc bách tử phụng đầu người\n\nQuyển 5: Đi Đường Khó (Hành lộ Nan) - 440 Chương (737-1176)\nTựa đề: Đi đường khó, đi đường khó, nhiều lối rẽ, nay gắn ở\nTrường phong phá lãng sẽ có lúc, thẳng treo vân phàm tế biển cả\n\nQuyển 6: Gió Lốc (Phù Diêu) - 191 Chương (1177-1368)\nTựa đề: Đại bàng một ngày cùng gió nổi lên, lên như diều gặp gió chín vạn dặm\n\nQuyển 7: Ta Như Thần Lâm (Ngã Như Thần Lâm - 241 Chương (1369-1611)\nTựa đề: Ta như thần linh lâm thế\n\nQuyển 8: Hạc Xông Lên Trời (Hạc Trùng Thiên) - 127 Chương (1612-1748)\nTựa đề: Đêm qua gió tây gọi cô nhạn, âm thanh đoạn người nào hồn trong mộng. Bừng tỉnh không ngủ say.\nNgười có tình tỉnh trời chưa tỉnh, u không đi tiếng sấm, vạn dặm mây đen thấp hơn một chút!\nBùn bên trong Hạc, hai cánh ngang, lông bay sớm rút hết, nhỏ xuống máu còn lạnh.\nMột thân vết dơ, không cần phải ánh trăng rửa.\nTự dưng hận, quản nó nơi nào tới.\nSau đó bao nhiêu năm.\nGỉ xương còn có thể hóa chim bay, lòng son chưa kêu trời biết được!\n\nQuyển 9: Hoa Trong Gương Trăng Trong Nước (Kính Hoa Thuỷ Nguyệt) - 194 Chương (1749-1947)\nTựa đề: Thạch thất đỉnh núi trồng cây đào, hoa nở rực rỡ một trăm năm.\nHoàng Lương ta mộng cũng chưa biết, hối hận cũng hận cũng đều như khói\n\nQuyển 10: Tất Cả Thành Hôm Nay Ta (Giai Thành Kim Nhật Ngã) - 114 Chương (1948-2069)\nTựa đề: Hôm qua đủ loại, đều thành hôm nay ta\n\nQuyển 11: Trên Trời Bạch Ngọc Kinh (Thiên Thượng Bạch Ngọc Kinh) (2070 - 2193)\n\nTựa đề: Phóng ta tâm viên, đại náo Thiên Cung\n\nQuyển 12: Thơ văn hoa mỹ cầu trời \n\nTựa đề: Ta không biết thế gian có vô cớ vô vị ưu sầu, sinh ra đã có chín đấu tài năng. Treo Thái A, quần áo đẹp, bút vẽ dấu vết của rồng, thơ văn hoa mỹ cầu trời.\n\nQuyển 13: Triêu Văn Đạo \n\nTựa đề: Phù du sinh ra chỉ một cái chớp mắt, lại oán trách một đời quá dài\n\nQuyển 14: « Thế Tôn ».\n\n\tTựa đề: \"Tự tại, rực cháy, đoan nghiêm, danh xưng, tôn quý, cát tường.\"\n\n\nQuyển 15: Thừa Tra Tinh Hán\n\nLời nói đầu: Tinh hà dù xa, ta muốn cưỡi bè mà lên.",
+        "vote_count": 99097,
+        "review_score": "4.928",
+        "review_count": 271,
+        "comment_count": 39634,
+        "chapter_count": 2755,
+        "view_count": 7444858,
+        "word_count": 8204288,
+        "created_at": "2021-02-05T11:30:15.000000Z",
+        "updated_at": "2025-05-12T16:05:26.000000Z",
+        "new_chap_at": "2025-05-12T04:42:08.000000Z",
+        "published_at": "2021-02-05T11:30:12.000000Z",
+        "published": 1,
+        "user_id": 1000062,
+        "object_type": "Book",
+        "bookmark_count": 13542,
+        "chapter_per_week": 7,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 4320,
+          "name": "Tình Hà Dĩ Thậm",
+          "avatar": null,
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 2,
+            "name": "Tiên Hiệp",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 64
+    },
+    {
+      "book": {
+        "id": 104120,
+        "name": "Bắt Đầu Đánh Dấu Hoang Cổ Thánh Thể",
+        "slug": "bat-dau-danh-dau-hoang-co-thanh-the",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/bat-dau-danh-dau-hoang-co-thanh-the",
+        "note": "",
+        "status_name": "Còn tiếp",
+        "first_chapter": 12721787,
+        "latest_chapter": 22637943,
+        "latest_index": 4030,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/bat-dau-danh-dau-hoang-co-thanh-the/150.jpg?1737708504",
+          "300": "https://static.cdnno.com/poster/bat-dau-danh-dau-hoang-co-thanh-the/300.jpg?1737708504",
+          "600": "https://static.cdnno.com/poster/bat-dau-danh-dau-hoang-co-thanh-the/600.jpg?1737708504",
+          "default": "https://static.cdnno.com/poster/bat-dau-danh-dau-hoang-co-thanh-the/default.jpg?1737708504"
+        },
+        "synopsis": "Quân Tiêu Dao xuyên qua Huyền Huyễn thế giới, trở thành Hoang Cổ thế gia Thần tử, ủng có vô địch bối cảnh, kinh thế thiên phú, càng đạt được đánh dấu hệ thống, bắt đầu đánh dấu một bộ đại thành Hoang Cổ thánh thể.\n\n\tTại Thái Nhạc cổ bia đánh dấu, thu hoạch được Lục tinh ban thưởng, Thần Tượng Trấn Ngục Kình!\n\n\tTại mười tuổi bữa tiệc đánh dấu, thu hoạch được thất tinh ban thưởng, Chí Tôn cốt!\n\n\tTại Thanh Đồng tiên điện đánh dấu, thu hoạch được bát tinh ban thưởng, Vạn Vật Mẫu Khí Đỉnh!\n\nJ Thần sách mới, cùng tác Cửu Kiếp Kiếm Ma.",
+        "vote_count": 17017,
+        "review_score": "4.671",
+        "review_count": 311,
+        "comment_count": 8081,
+        "chapter_count": 4022,
+        "view_count": 19928504,
+        "word_count": 7310839,
+        "created_at": "2020-05-20T14:27:11.000000Z",
+        "updated_at": "2025-05-12T16:24:26.000000Z",
+        "new_chap_at": "2025-05-12T03:08:03.000000Z",
+        "published_at": "2020-05-20T14:27:08.000000Z",
+        "published": 1,
+        "user_id": 1000043,
+        "object_type": "Book",
+        "bookmark_count": 13828,
+        "chapter_per_week": 14,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 2292,
+          "name": "J Thần",
+          "avatar": null,
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 3,
+            "name": "Huyền Huyễn",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 61
+    },
+    {
+      "book": {
+        "id": 140433,
+        "name": "Bắt Đầu Đoạt Nhân Vật Chính Cơ Duyên",
+        "slug": "bat-dau-doat-nhan-vat-chinh-co-duyen",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 2,
+        "link": "https://metruyencv.com/truyen/bat-dau-doat-nhan-vat-chinh-co-duyen",
+        "note": "",
+        "status_name": "Hoàn thành",
+        "first_chapter": 22081346,
+        "latest_chapter": 22108739,
+        "latest_index": 920,
+        "high_quality": 0,
+        "manager_pick": 0,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/bat-dau-doat-nhan-vat-chinh-co-duyen/150.jpg?1743638024",
+          "300": "https://static.cdnno.com/poster/bat-dau-doat-nhan-vat-chinh-co-duyen/300.jpg?1743638024",
+          "600": "https://static.cdnno.com/poster/bat-dau-doat-nhan-vat-chinh-co-duyen/600.jpg?1743638024",
+          "default": "https://static.cdnno.com/poster/bat-dau-doat-nhan-vat-chinh-co-duyen/default.jpg?1743638024"
+        },
+        "synopsis": "--------------------\nSát vách người thuê lại là cái người trùng sinh!\nChuyện này vốn là rất không hợp thói thường, nhưng càng kỳ quái hơn chính là, một cái nho nhỏ cải biến, để vốn hẳn nên đại triển quyền cước, quát tháo phong vân người trùng sinh sớm treo......\nNgoài ý muốn kế thừa nhân vật chính cơ duyên Hứa Phi, căn cứ đôi câu vài lời tin tức, cướp được toàn cầu thủ khoản game giả lập 【 Thần Khí Chi Địa 】 thủ đo người chơi danh ngạch.\nNhưng hắn rất nhanh phát hiện, cái này tràn ngập quỷ dị, quái dị thế giới trò chơi, cũng không có tưởng tượng đơn giản như vậy.\nKhi Cao Duy tin tức chiếu rọi tiến hiện thế một khắc này, ngày tận thế tới!",
+        "vote_count": 0,
+        "review_score": "5.000",
+        "review_count": 1,
+        "comment_count": 20,
+        "chapter_count": 920,
+        "view_count": 97732,
+        "word_count": 1647578,
+        "created_at": "2025-04-02T23:53:02.000000Z",
+        "updated_at": "2025-05-12T14:04:47.000000Z",
+        "new_chap_at": "2025-04-04T16:34:21.000000Z",
+        "published_at": "2025-04-03T04:28:59.000000Z",
+        "published": 1,
+        "user_id": 1280652,
+        "object_type": "Book",
+        "bookmark_count": 160,
+        "chapter_per_week": 0,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 22453,
+          "name": "Thái Thượng Đạo Kinh",
+          "avatar": null,
+          "local_name": "太上道经",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 5,
+            "name": "Võng Du",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 61
+    },
+    {
+      "book": {
+        "id": 104000,
+        "name": "Ta Có Một Thân Bị Động Kỹ",
+        "slug": "ta-co-mot-than-bi-dong-ky",
+        "kind": 1,
+        "sex": 1,
+        "state": "Đã xuất bản",
+        "status": 1,
+        "link": "https://metruyencv.com/truyen/ta-co-mot-than-bi-dong-ky",
+        "note": "Giới thiệu truyện hay:\n- Mạnh nhất Boss hệ thống\n- Trọng sinh làm mạnh nhất kiếm thần\n- Ta có một tòa khí vận tế đàn\n- Trọng sinh làm ma giáo giáo chủ\n- Ta có một thân bị động kỹ\n- Ta thật không phải khí vận chi tử\n- Vô địch sư thúc tổ\n- Colorfast Pháp Thần",
+        "status_name": "Còn tiếp",
+        "first_chapter": 12664308,
+        "latest_chapter": 22643396,
+        "latest_index": 1977,
+        "high_quality": 0,
+        "manager_pick": 1,
+        "poster": {
+          "150": "https://static.cdnno.com/poster/ta-co-mot-than-bi-dong-ky/150.jpg?1738217652",
+          "300": "https://static.cdnno.com/poster/ta-co-mot-than-bi-dong-ky/300.jpg?1738217652",
+          "600": "https://static.cdnno.com/poster/ta-co-mot-than-bi-dong-ky/600.jpg?1738217652",
+          "default": "https://static.cdnno.com/poster/ta-co-mot-than-bi-dong-ky/default.jpg?1738217652"
+        },
+        "synopsis": "\"Mạnh nhất trên thế giới kỹ năng, là cần chủ động thi triển kỹ năng sao?\"\n\n\t\"Sai! Là bị động kỹ!\"\n\n\t\"Cái gì là bị động kỹ?\"\n\n\t\"Bị động kỹ, là thuần phát chủ động kỹ, là không người sẽ đi phòng bị sát chiêu, là người chết mới có thể biết được cuối cùng át chủ bài!\"\n\n\t\"Có thể thông tục dễ hiểu chút?\"\n\n\t\"Phương pháp hô hấp, cường tráng, cảm giác ...\"\n\n\t\"Ha ha, liền cái này?\"\n\n\tTừ Tiểu Thụ một kiếm xé rách tinh hà, thế nhân phải sợ hãi .\n\n\t\"...\"\n\n\t\"Cái này mẹ nó vậy gọi bị động kỹ?\"\n\n\t\"Ân, kiếm thuật tinh thông .\"",
+        "vote_count": 57295,
+        "review_score": "4.849",
+        "review_count": 237,
+        "comment_count": 23330,
+        "chapter_count": 1977,
+        "view_count": 9529994,
+        "word_count": 7361839,
+        "created_at": "2020-05-01T11:49:02.000000Z",
+        "updated_at": "2025-05-12T16:02:38.000000Z",
+        "new_chap_at": "2025-05-12T08:47:23.000000Z",
+        "published_at": "2020-05-01T11:49:00.000000Z",
+        "published": 1,
+        "user_id": 1000016,
+        "object_type": "Book",
+        "bookmark_count": 13780,
+        "chapter_per_week": 6,
+        "ready_for_sale": 0,
+        "discount_price": 0,
+        "discount": 0,
+        "author": {
+          "id": 3214,
+          "name": "Ngao Dạ Cật Bình Quả",
+          "avatar": null,
+          "local_name": "熬夜喫蘋果",
+          "object_type": "Author"
+        },
+        "genres": [
+          {
+            "id": 3,
+            "name": "Huyền Huyễn",
+            "object_type": "Genre"
+          }
+        ]
+      },
+      "reading_count": 58
+    }
+  ],
+  "success": true,
+  "status": 200,
+  "message": null,
+  "extra": []
+}

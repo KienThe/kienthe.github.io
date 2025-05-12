@@ -4,9 +4,21 @@
  */
 await import("./src/env.js")
 
-/** @type {import("next").NextConfig} */
-
-const config = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        child_process: false,
+        readline: false,
+      }
+    }
+    return config
+  },
   ...(process.env.NODE_ENV === "production" && {
     output: "export"
   }),
@@ -23,4 +35,4 @@ const config = {
   }
 }
 
-export default config
+export default nextConfig

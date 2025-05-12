@@ -1,28 +1,22 @@
-import "~/styles/globals.css"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "../styles/globals.css"
 
-import { GeistSans } from "geist/font/sans"
-import { type Metadata } from "next"
-import Favicon from "~/public/images/meme_sad_frog.png"
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "The Kien Dev",
-  description: "The Kien Dev - A pull stack developer",
-  icons: [{ rel: "icon", url: Favicon.src }]
+  title: "Metruyencv Crawler",
+  description: "Crawler for metruyencv.com"
 }
 
 export default function RootLayout({
   children
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
-      </head>
-      <body className="w-full h-screen">{children}</body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

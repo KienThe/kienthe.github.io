@@ -10,6 +10,7 @@ import {
   AnimationType,
   Direction
 } from "~/types"
+import { cn } from "~/lib/utils"
 
 export interface TitleProps {
   value: number
@@ -23,11 +24,16 @@ function titleTranslate(axis: "X" | "Y", value: number) {
 function findAnimation<T extends Animation>(
   animations: Animation[] | undefined,
   type: AnimationType
-): T {
-  return animations?.find((animation) => animation.type === type) as T
+): T | undefined {
+  return animations?.find((animation) => animation.type === type) as T | undefined
 }
 
-const Title: React.FC<TitleProps> = ({ value, animations }) => {
+interface ClassNameObject {
+  new?: boolean
+  merge?: boolean
+}
+
+const Title = ({ value, animations }: TitleProps) => {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -111,13 +117,13 @@ const Title: React.FC<TitleProps> = ({ value, animations }) => {
     <div className="leading-0 relative rounded-md  bg-[#cdc1b4] pb-[100%] text-lg">
       {value !== 0 && (
         <div
-          className={twMerge(
+          className={cn(
             "leading-0 z-9 absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-md bg-[#3c3a32] text-sm font-bold text-black",
             titleColor(value),
             {
               new: !!newAnimation,
               merge: !!mergeAnimation
-            }
+            } as ClassNameObject
           )}
           style={style}
         >
