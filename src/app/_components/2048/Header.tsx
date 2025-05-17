@@ -6,7 +6,7 @@ import { gameStateAtom } from "~/stores"
 import { Control } from "./Control"
 
 const Header = () => {
-  const gameState = useAtomValue(gameStateAtom)!
+  const gameState = useAtomValue(gameStateAtom)
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {

@@ -1,9 +1,11 @@
-import { CrawlView } from "~/components/crawl/CrawlView"
+"use client"
+
+import { CrawlView } from "~/app/_components/crawl/CrawlView"
 
 export default function CrawlPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Metruyencv Crawler</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-6">MetTruyenCV Crawler</h1>
       <CrawlView />
     </div>
   )

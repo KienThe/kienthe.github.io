@@ -1,67 +1,63 @@
 services:
-  # db:
-  #   image: postgres:15
-  #   container_name: postgres_db
-  #   restart: unless-stopped
-  #   environment:
-  #     POSTGRES_USER: root
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: postgres
-  #   ports:
-  #     - "5432:5432"
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-  #   networks:
-  #     - default
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    networks:
+      - default
 
   app:
     platform: "linux/amd64"
     container_name: app
-    build: .
+    build:
+      context: .
+      target: development
     image: app:latest
     working_dir: /app
     restart: unless-stopped
     volumes:
       - .:/app
       - /app/node_modules
-      - ./crawl-results:/app/crawl-results
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
-      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
     env_file:
       - .env
+    depends_on:
+      redis:
+        condition: service_healthy
+      db:
+        condition: service_started
     networks:
       - default
-    command: pnpm dev
-
-  crawler:
-    platform: "linux/amd64"
-    container_name: crawler
-    build: .
-    image: app:latest
-    working_dir: /app
-    restart: unless-stopped
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - ./crawl-results:/app/crawl-results
-    environment:
-      - NODE_ENV=development
-      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-    env_file:
-      - .env
-    networks:
-      - default
-    command: pnpm start
 
 volumes:
   postgres_data:
+  redis_data:
 
 networks:
   default:

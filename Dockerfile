@@ -1,59 +1,52 @@
-FROM node:20-slim
+##### BASE
+FROM --platform=linux/amd64 node:20-alpine AS base
 
-# Install dependencies for Puppeteer and Node.js native modules
-RUN apt-get update && apt-get install -y \
-    chromium \
-    fonts-ipafont-gothic \
-    fonts-wqy-zenhei \
-    fonts-thai-tlwg \
-    fonts-kacst \
-    fonts-freefont-ttf \
-    python3 \
-    make \
-    g++ \
-    libcups2 \
-    libxss1 \
-    libxtst6 \
-    libx11-xcb1 \
-    libxcb1 \
-    libxcomposite1 \
-    libxcursor1 \
-    libxdamage1 \
-    libxi6 \
-    libxtst6 \
-    libnss3 \
-    libxrandr2 \
-    libasound2 \
-    libpangocairo-1.0-0 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libgtk-3-0 \
-    libgbm1 \
-    libxshmfence1 \
-    --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+##### DEPENDENCIES
 
-# Set environment variables for Puppeteer
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
-ENV NODE_ENV=production
-
+FROM base AS deps
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm && pnpm install
 
-# Install dependencies
-RUN npm install -g pnpm && pnpm install --no-frozen-lockfile
+##### BUILDER
 
-# Copy source code
+FROM base AS builder
+ARG DATABASE_URL
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+# ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN SKIP_ENV_VALIDATION=1 pnpm run build --no-lint
+
+##### DEVELOPMENT
+
+FROM base AS development
+WORKDIR /app
+ENV NODE_ENV=development
+
+RUN npm install -g pnpm
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build the application
-RUN pnpm build
-
-# Expose port
 EXPOSE 3000
+CMD ["sh", "-c", "pnpm dev"]
 
-# Start the application
-CMD ["pnpm", "start"]
+##### PRODUCTION
+
+FROM base AS production
+WORKDIR /app
+ENV NODE_ENV=production
+
+RUN npm install -g pnpm
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --prod
+
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 3000
+CMD ["sh", "-c", "pnpm start"]

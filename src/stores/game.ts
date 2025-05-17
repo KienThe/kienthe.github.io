@@ -1,5 +1,4 @@
 import { atom } from "jotai"
-import React from "react"
 import {
   ActionType,
   type ActionModel,
@@ -114,9 +113,3 @@ export const gameStateAtom = atom(
     setStoredData(get(gameStateAtom))
   }
 )
-
-const Board = React.memo(() => {
-  // ... code như cũ
-})
-
-export { Board }
