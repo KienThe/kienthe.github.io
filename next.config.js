@@ -4,9 +4,9 @@
  */
 await import("./src/env.js")
 
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
-  webpack: (config, { isServer }) => {
+  webpack: (config, { webpack, isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -14,9 +14,15 @@ const nextConfig = {
         net: false,
         tls: false,
         child_process: false,
-        readline: false,
+        readline: false
       }
     }
+
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^pg-native$|^cloudflare:sockets$/
+      })
+    )
     return config
   },
   ...(process.env.NODE_ENV === "production" && {

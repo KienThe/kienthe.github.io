@@ -133,7 +133,9 @@ export const books = pgTable("books", {
   newChapAt: timestamp("new_chap_at", { withTimezone: true }),
   publishedAt: timestamp("published_at", { withTimezone: true }),
   published: boolean("published"),
-  userId: integer("user_id"),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
   objectType: varchar("object_type", { length: 32 }),
   bookmarkCount: integer("bookmark_count"),
   chapterPerWeek: integer("chapter_per_week"),
@@ -154,7 +156,9 @@ export const chapters = pgTable("chapters", {
   viewCount: integer("view_count"),
   createdAt: timestamp("created_at", { withTimezone: true }),
   updatedAt: timestamp("updated_at", { withTimezone: true }),
-  userId: integer("user_id").references(() => users.id),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
   next: jsonb("next").$type<{
     id: number
     name: string

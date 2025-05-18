@@ -1,20 +1,12 @@
 import bcrypt from "bcrypt"
 import { eq } from "drizzle-orm"
-import { z } from "zod"
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
+import { loginSchema, registerSchema } from "~/lib/zod"
+import {
+  createTRPCRouter,
+  protectedProcedure,
+  publicProcedure
+} from "~/server/api/trpc"
 import { users } from "~/server/db/schema"
-import { type NewUser } from "~/server/db/types"
-
-const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8)
-})
-
-const registerSchema = z.object({
-  name: z.string().min(1),
-  email: z.string().email(),
-  password: z.string().min(8)
-})
 
 export const authRouter = createTRPCRouter({
   login: publicProcedure.input(loginSchema).mutation(async ({ ctx, input }) => {
@@ -34,21 +26,23 @@ export const authRouter = createTRPCRouter({
 
     return user
   }),
-
   register: publicProcedure
     .input(registerSchema)
     .mutation(async ({ ctx, input }) => {
       const hashedPassword = await bcrypt.hash(input.password, 10)
-      const newUser: NewUser = {
+      const newUser = {
         name: input.name,
         email: input.email,
         password: hashedPassword,
-        role: "user",
+        role: "user" as const,
         level: 1,
         exp: 0
       }
 
       const [user] = await ctx.db.insert(users).values(newUser).returning()
       return user
-    })
+    }),
+  me: protectedProcedure.query(async ({ ctx }) => {
+    return ctx.db.select().from(users)
+  })
 })

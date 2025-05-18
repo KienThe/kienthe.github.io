@@ -7,56 +7,66 @@ import {
 } from "@radix-ui/react-icons"
 import { Button, Card, Flex, Text } from "@radix-ui/themes"
 import { signIn } from "next-auth/react"
-import { useRouter } from "next/navigation"
 import { useState } from "react"
+import { useForm } from "react-hook-form"
+import type { NewUser } from "~/server/db/types"
 import { api } from "~/trpc/react"
 
+type RegisterFormInputs = NewUser & { confirmPassword: string }
+
 export function RegisterForm() {
-  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const register = api.auth.register.useMutation()
+  const registerMutation = api.auth.register.useMutation()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<RegisterFormInputs>({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    }
+  })
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+  async function onSubmit(data: RegisterFormInputs) {
     setIsLoading(true)
     setError(null)
 
-    const formData = new FormData(event.currentTarget)
-    const name = formData.get("name") as string
-    const email = formData.get("email") as string
-    const password = formData.get("password") as string
-    const confirmPassword = formData.get("confirmPassword") as string
-
-    if (password !== confirmPassword) {
+    if (data.password !== data.confirmPassword) {
       setError("Passwords do not match")
       setIsLoading(false)
       return
     }
 
     try {
-      await register.mutateAsync({
-        name,
-        email,
-        password
+      await registerMutation.mutateAsync({
+        name: data.name,
+        email: data.email,
+        password: data.password
       })
 
       // Sign in the user after successful registration
-      const result = await signIn("credentials", {
-        email,
-        password,
-        redirect: false
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirectTo: "/crawl"
       })
-
-      if (result?.error) {
-        throw new Error(result.error)
+    } catch (error: any) {
+      if (
+        typeof error?.message === "string" &&
+        error.message.startsWith("<!DOCTYPE")
+      ) {
+        setError(
+          "Server returned invalid response. Please check your API endpoint."
+        )
+      } else {
+        setError(
+          error instanceof Error ? error.message : "Something went wrong"
+        )
       }
-
-      router.push("/dashboard")
-      router.refresh()
-    } catch (error) {
-      console.error(error)
-      setError(error instanceof Error ? error.message : "Something went wrong")
     } finally {
       setIsLoading(false)
     }
@@ -64,7 +74,7 @@ export function RegisterForm() {
 
   return (
     <Card size="2">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Flex direction="column" gap="4">
           {error && (
             <Text color="red" size="2">
@@ -79,14 +89,18 @@ export function RegisterForm() {
               <PersonIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
               <input
                 id="name"
-                name="name"
                 placeholder="John Doe"
                 type="text"
                 autoComplete="name"
                 disabled={isLoading}
-                required
                 className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                {...register("name", { required: "Name is required" })}
               />
+              {errors.name && (
+                <Text color="red" size="1" as="span" className="ml-2">
+                  {errors.name.message}
+                </Text>
+              )}
             </div>
           </Flex>
           <Flex direction="column" gap="1">
@@ -97,16 +111,20 @@ export function RegisterForm() {
               <EnvelopeClosedIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
               <input
                 id="email"
-                name="email"
                 placeholder="name@example.com"
                 type="email"
                 autoCapitalize="none"
                 autoComplete="email"
                 autoCorrect="off"
                 disabled={isLoading}
-                required
                 className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                {...register("email", { required: "Email is required" })}
               />
+              {errors.email && (
+                <Text color="red" size="1" as="span" className="ml-2">
+                  {errors.email.message}
+                </Text>
+              )}
             </div>
           </Flex>
           <Flex direction="column" gap="1">
@@ -117,13 +135,17 @@ export function RegisterForm() {
               <LockClosedIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
               <input
                 id="password"
-                name="password"
                 type="password"
                 autoComplete="new-password"
                 disabled={isLoading}
-                required
                 className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                {...register("password", { required: "Password is required" })}
               />
+              {errors.password && (
+                <Text color="red" size="1" as="span" className="ml-2">
+                  {errors.password.message}
+                </Text>
+              )}
             </div>
           </Flex>
           <Flex direction="column" gap="1">
@@ -134,13 +156,19 @@ export function RegisterForm() {
               <LockClosedIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
               <input
                 id="confirmPassword"
-                name="confirmPassword"
                 type="password"
                 autoComplete="new-password"
                 disabled={isLoading}
-                required
                 className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                {...register("confirmPassword", {
+                  required: "Please confirm your password"
+                })}
               />
+              {errors.confirmPassword && (
+                <Text color="red" size="1" as="span" className="ml-2">
+                  {errors.confirmPassword.message}
+                </Text>
+              )}
             </div>
           </Flex>
           <Button disabled={isLoading}>

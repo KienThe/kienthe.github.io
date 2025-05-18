@@ -3,8 +3,8 @@ import React, { useState } from "react"
 import { authAtom, loginAtom } from "~/stores/auth"
 
 export const Login: React.FC = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("godnaruto6519@gmail.com")
+  const [password, setPassword] = useState("kien89928")
   const [login] = useAtom(loginAtom)
   const [auth] = useAtom(authAtom)
 

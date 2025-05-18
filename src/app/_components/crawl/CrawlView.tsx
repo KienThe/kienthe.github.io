@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import {
   clearLogs,
   clearNetworkRequests,
@@ -14,7 +14,7 @@ import {
   login,
   type CrawlLog,
   type NetworkRequest
-} from "~/app/crawl/actions"
+} from "~/app/(Auth)/crawl/actions"
 
 interface Book {
   id: number
@@ -70,10 +70,8 @@ export function CrawlView() {
     []
   )
   const [showNetworkRequests, setShowNetworkRequests] = useState(false)
-  const [selectedBookId, setSelectedBookId] = useState<number | null>(null)
-  const [selectedChapterId, setSelectedChapterId] = useState<number | null>(
-    null
-  )
+  const [, setSelectedBookId] = useState<number | null>(null)
+  const [, setSelectedChapterId] = useState<number | null>(null)
   const [chapterContent, setChapterContent] = useState<string | null>(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoggingIn, setIsLoggingIn] = useState(false)
@@ -127,7 +125,7 @@ export function CrawlView() {
         console.error("Error loading stored credentials:", error)
       }
     }
-    checkAuth()
+    checkAuth().then(r => ({}))
   }, [])
 
   const handleAutoLogin = async (

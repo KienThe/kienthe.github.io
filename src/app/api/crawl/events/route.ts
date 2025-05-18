@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { getCrawlState } from "~/app/crawl/actions"
+import { getCrawlState } from "~/app/(Auth)/crawl/actions"
 
 export async function GET() {
   const encoder = new TextEncoder()

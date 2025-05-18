@@ -1,8 +1,7 @@
 import { eq } from "drizzle-orm"
 import { z } from "zod"
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc"
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc"
 import { users } from "~/server/db/schema"
-import { type NewUser } from "~/server/db/types"
 
 const createUserSchema = z.object({
   name: z.string().min(1),
@@ -23,10 +22,10 @@ const updateUserSchema = z.object({
 })
 
 export const userRouter = createTRPCRouter({
-  create: publicProcedure
+  create: protectedProcedure
     .input(createUserSchema)
     .mutation(async ({ ctx, input }) => {
-      const newUser: NewUser = {
+      const newUser = {
         name: input.name,
         email: input.email,
         password: input.password,
@@ -37,15 +36,15 @@ export const userRouter = createTRPCRouter({
       }
       return ctx.db.insert(users).values(newUser)
     }),
-  getUser: publicProcedure.query(async ({ ctx }) => {
+  getUser: protectedProcedure.query(async ({ ctx }) => {
     return ctx.db.select().from(users)
   }),
-  updateUser: publicProcedure
+  updateUser: protectedProcedure
     .input(updateUserSchema)
     .mutation(async ({ ctx, input }) => {
       return ctx.db.update(users).set(input).where(eq(users.id, input.id))
     }),
-  deleteUser: publicProcedure
+  deleteUser: protectedProcedure
     .input(z.object({ id: z.number() }))
     .mutation(async ({ ctx, input }) => {
       return ctx.db.delete(users).where(eq(users.id, input.id))

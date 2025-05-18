@@ -1,7 +1,6 @@
 /* eslint-disable */
 "use server"
 
-import { revalidatePath } from "next/cache"
 import redis from "~/lib/redis"
 
 const API_URL = "https://backend.metruyencv.com/api"

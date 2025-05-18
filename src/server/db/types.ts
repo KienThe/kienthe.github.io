@@ -4,6 +4,10 @@ import type { books, chapters, poster, users } from "./schema"
 // User types
 export type User = InferSelectModel<typeof users>
 export type NewUser = InferInsertModel<typeof users>
+export type LoginUser = {
+  email: string
+  password: string
+}
 
 // Book types
 export type Book = InferSelectModel<typeof books>

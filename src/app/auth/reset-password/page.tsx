@@ -1,5 +1,5 @@
-import { Metadata } from "next"
-import { ResetPasswordForm } from "./resetPasswordForm"
+import type { Metadata } from "next"
+import { ResetPasswordForm } from "~/components/Auth"
 
 export const metadata: Metadata = {
   title: "Reset Password",
@@ -39,7 +39,7 @@ export default function ResetPasswordPage({
             Enter your new password below
           </p>
         </div>
-        <ResetPasswordForm token={searchParams.token} />
+        <ResetPasswordForm />
       </div>
     </div>
   )
