@@ -11,11 +11,18 @@ import {
   users,
   verificationTokens
 } from "~/server/db/schema"
+import type { User } from "~/server/db/types"
+
+declare module "@auth/core/types" {
+  interface Session {
+    user: User
+  }
+}
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: DrizzleAdapter(db, {
     usersTable: users,
-    accountsTable: accounts,
+    accountsTable: accounts as any,
     sessionsTable: sessions,
     verificationTokensTable: verificationTokens
   }),
@@ -59,7 +66,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     strategy: "jwt"
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: JWT; user: any }) {
       if (user) {
         token.id = user.id
       }
@@ -67,7 +74,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
     async session({ session, token }: { session: Session; token: JWT }) {
       if (token) {
-        session.user.id = token.id
+        session.user.id = token.id as string
       }
       return session
     }

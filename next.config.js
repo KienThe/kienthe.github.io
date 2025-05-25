@@ -25,9 +25,7 @@ const nextConfig = {
     )
     return config
   },
-  ...(process.env.NODE_ENV === "production" && {
-    output: "export"
-  }),
+  output: "standalone",
   reactStrictMode: true,
   // swcMinify: true,
   images: {
@@ -38,6 +36,9 @@ const nextConfig = {
       }
     ],
     unoptimized: true
+  },
+  experimental: {
+    outputFileTracingRoot: undefined
   }
 }
 

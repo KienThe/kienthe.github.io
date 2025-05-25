@@ -568,14 +568,14 @@ export function CrawlView() {
                         {request.response && "status" in request.response && (
                           <div
                             className={`inline-block px-2 py-1 text-xs font-semibold rounded ${
-                              request.response.status === 200
+                              (request.response.status as number) === 200
                                 ? "bg-green-100 text-green-800"
-                                : request.response.status >= 400
+                                : (request.response.status as number) >= 400
                                   ? "bg-red-100 text-red-800"
                                   : "bg-yellow-100 text-yellow-800"
                             }`}
                           >
-                            Status: {request.response.status}
+                            Status: {request.response.status as number}
                           </div>
                         )}
                         {/* Response Data */}

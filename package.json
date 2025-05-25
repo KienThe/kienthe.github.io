@@ -30,6 +30,7 @@
     "@trpc/server": "^11.0.0-rc.446",
     "@types/bcrypt": "^5.0.2",
     "@types/crypto-js": "^4.2.2",
+    "@types/nodemailer": "^6.4.17",
     "axios": "^1.6.0",
     "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
@@ -42,6 +43,7 @@
     "jotai": "^2.10.1",
     "next": "^14.2.4",
     "next-auth": "5.0.0-beta.28",
+    "nodemailer": "^7.0.3",
     "postgres": "^3.4.5",
     "puppeteer": "^21.11.0",
     "react": "^18.3.1",
@@ -74,5 +76,6 @@
   },
   "ct3aMetadata": {
     "initVersion": "7.37.0"
-  }
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

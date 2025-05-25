@@ -43,8 +43,8 @@ export function RegisterForm() {
 
     try {
       await registerMutation.mutateAsync({
-        name: data.name,
-        email: data.email,
+        name: data.name ?? "",
+        email: data.email ?? "",
         password: data.password
       })
 

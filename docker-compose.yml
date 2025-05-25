@@ -24,7 +24,7 @@ services:
       - redis_data:/data
     command: redis-server --appendonly yes
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 5s
       timeout: 3s
       retries: 3
@@ -47,6 +47,9 @@ services:
       - "3000:3000"
     env_file:
       - .env
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
       redis:
         condition: service_healthy
@@ -58,6 +61,7 @@ services:
 volumes:
   postgres_data:
   redis_data:
+
 
 networks:
   default:

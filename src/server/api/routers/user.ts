@@ -14,7 +14,7 @@ const createUserSchema = z.object({
 })
 
 const updateUserSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string().min(1),
   email: z.string().email(),
   password: z.string().min(8),
@@ -45,7 +45,7 @@ export const userRouter = createTRPCRouter({
       return ctx.db.update(users).set(input).where(eq(users.id, input.id))
     }),
   deleteUser: protectedProcedure
-    .input(z.object({ id: z.number() }))
+    .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {
       return ctx.db.delete(users).where(eq(users.id, input.id))
     })

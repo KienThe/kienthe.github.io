@@ -1,52 +1,42 @@
-##### BASE
-FROM --platform=linux/amd64 node:20-alpine AS base
+# syntax=docker.io/docker/dockerfile:1
 
-##### DEPENDENCIES
-
-FROM base AS deps
-RUN apk add --no-cache libc6-compat openssl
+FROM node:20-alpine AS base
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm && pnpm install
+# Install dependencies based on the preferred package manager
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+RUN \
+    if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i; \
+    else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
+    fi
 
-##### BUILDER
-
-FROM base AS builder
-ARG DATABASE_URL
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-# ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN SKIP_ENV_VALIDATION=1 pnpm run build --no-lint
-
-##### DEVELOPMENT
-
+# Development target
 FROM base AS development
-WORKDIR /app
-ENV NODE_ENV=development
+COPY . /app
+# Note: Don't expose ports here, Compose will handle that for us
+CMD \
+    if [ -f yarn.lock ]; then yarn dev; \
+    elif [ -f package-lock.json ]; then npm run dev; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm dev; \
+    else npm run dev; \
+    fi
 
-RUN npm install -g pnpm
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-
-EXPOSE 3000
-CMD ["sh", "-c", "pnpm dev"]
-
-##### PRODUCTION
-
+# Production target
 FROM base AS production
-WORKDIR /app
-ENV NODE_ENV=production
+COPY . /app
+RUN \
+    if [ -f yarn.lock ]; then yarn build; \
+    elif [ -f package-lock.json ]; then npm run build; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm build; \
+    else npm run build; \
+    fi
 
-RUN npm install -g pnpm
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --prod
-
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
-
-EXPOSE 3000
-CMD ["sh", "-c", "pnpm start"]
+# Start Next.js in production mode
+CMD \
+    if [ -f yarn.lock ]; then yarn start; \
+    elif [ -f package-lock.json ]; then npm start; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm start; \
+    else npm start; \
+    fi
