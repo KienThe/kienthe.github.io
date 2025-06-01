@@ -2,8 +2,13 @@
 
 import { useAtom } from "jotai"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { gameStateAtom, moveAction, resetAction } from "~/stores"
-import { AnimationType, Direction, type Animation, type Point } from "~/types"
+import { gameStateAtom, moveAction, resetAction } from "~/lib/stores"
+import {
+  AnimationType,
+  Direction,
+  type Animation,
+  type Point
+} from "~/lib/types"
 import { type BoardType } from "~/utils"
 import { Overlay } from "./Overlay"
 import { Title } from "./Title"

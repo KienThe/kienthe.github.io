@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { Footer } from "./_components"
-
+import { Footer } from "../_components"
 export default function Home() {
   return (
     <>

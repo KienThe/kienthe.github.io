@@ -3,22 +3,32 @@ import { getCrawlState } from "~/app/(Auth)/crawl/actions"
 
 export async function GET() {
   const encoder = new TextEncoder()
+
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        // Gửi initial state
-        const state = await getCrawlState()
-        controller.enqueue(encoder.encode(`data: ${JSON.stringify(state)}\n\n`))
+        let counter = 0
 
-        // Lưu controller
-        global.crawlController = controller
+        const sendUpdate = async () => {
+          const state = await getCrawlState() // Hoặc mock data
+          controller.enqueue(
+            encoder.encode(`data: ${JSON.stringify(state)}\n\n`)
+          )
+
+          counter++
+          if (counter >= 10) {
+            controller.close()
+            return
+          }
+
+          setTimeout(() => void sendUpdate(), 1000) // 1s/lần
+        }
+
+        sendUpdate() // bắt đầu
       } catch (error) {
         console.error("Error in SSE stream:", error)
         controller.close()
       }
-    },
-    cancel() {
-      global.crawlController = null
     }
   })
 

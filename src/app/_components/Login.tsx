@@ -1,10 +1,10 @@
 import { useAtom } from "jotai"
 import React, { useState } from "react"
-import { authAtom, loginAtom } from "~/stores/auth"
+import { authAtom, loginAtom } from "~/lib/stores/auth"
 
 export const Login: React.FC = () => {
-  const [email, setEmail] = useState("godnaruto6519@gmail.com")
-  const [password, setPassword] = useState("kien89928")
+  const [email, setEmail] = useState("thekien651@gmail.com")
+  const [password, setPassword] = useState("651999")
   const [, login] = useAtom(loginAtom)
   const [auth] = useAtom(authAtom)
 

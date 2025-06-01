@@ -9,7 +9,7 @@ import {
   type AnimationNew,
   AnimationType,
   Direction
-} from "~/types"
+} from "~/lib/types"
 
 export interface TitleProps {
   value: number

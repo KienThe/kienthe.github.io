@@ -4,7 +4,7 @@ import {
   type ActionModel,
   type Direction,
   type GameState
-} from "~/types"
+} from "~/lib/types"
 import {
   getStoredData,
   initializeBoard,

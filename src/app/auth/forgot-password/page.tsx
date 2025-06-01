@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ForgotPasswordForm } from "~/components/Auth"
+import { ForgotPasswordForm } from "@/components/Auth"  
 
 export const metadata: Metadata = {
   title: "Forgot Password",

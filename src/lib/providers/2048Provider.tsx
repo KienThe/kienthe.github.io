@@ -4,7 +4,7 @@ import {
   useState,
   type PropsWithChildren
 } from "react"
-import { type GameState } from "~/types"
+import { type GameState } from "~/lib/types"
 import { getStoredData } from "~/utils"
 
 const storedData = getStoredData()

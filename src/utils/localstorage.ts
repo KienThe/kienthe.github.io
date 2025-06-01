@@ -1,4 +1,4 @@
-import { type StorageModel } from "~/types"
+import { type StorageModel } from "~/lib/types"
 
 const ITEM_NAME = "2048_data"
 

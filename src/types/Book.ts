@@ -1,0 +1,43 @@
+export type Book = {
+  id: number
+  name: string
+  slug: string
+  kind: number
+  sex: number
+  state: string
+  status: number
+  link: string
+  note: string
+  status_name: string
+  first_chapter: number
+  latest_chapter: number
+  latest_index: number
+  high_quality: number
+  manager_pick: number
+  poster: {
+    "150": string
+    "300": string
+    "600": string
+    default: string
+  }
+  synopsis: string
+  vote_count: number
+  review_score: string
+  review_count: number
+  comment_count: number
+  chapter_count: number
+  view_count: number
+  word_count: number
+  created_at: string
+  updated_at: string
+  new_chap_at: string
+  published_at: string
+  published: number
+  user_id: number
+  object_type: string
+  bookmark_count: number
+  chapter_per_week: number
+  ready_for_sale: number
+  discount_price: number
+  discount: number
+}

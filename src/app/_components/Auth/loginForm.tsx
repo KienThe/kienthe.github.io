@@ -39,54 +39,50 @@ export function LoginForm() {
   }
 
   return (
-    <Card size="2">
+    <Card size="2" style={{ maxWidth: 350, margin: "auto" }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Flex direction="column" gap="4">
-          <Flex direction="column" gap="1">
-            <Text as="label" size="2" weight="medium" htmlFor="email">
-              Email
+          <Text as="label" size="2" weight="medium" htmlFor="email">
+            Email
+          </Text>
+          <div className="relative">
+            <EnvelopeClosedIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+            <input
+              id="email"
+              placeholder="name@example.com"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading}
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+              {...register("email", { required: "Email is required" })}
+            />
+          </div>
+          {errors.email && (
+            <Text color="red" size="1" as="span" className="ml-2">
+              {errors.email.message}
             </Text>
-            <div className="relative">
-              <EnvelopeClosedIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
-              <input
-                id="email"
-                placeholder="name@example.com"
-                type="email"
-                autoCapitalize="none"
-                autoComplete="email"
-                autoCorrect="off"
-                disabled={isLoading}
-                className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
-                {...register("email", { required: "Email is required" })}
-              />
-              {errors.email && (
-                <Text color="red" size="1" as="span" className="ml-2">
-                  {errors.email.message}
-                </Text>
-              )}
-            </div>
-          </Flex>
-          <Flex direction="column" gap="1">
-            <Text as="label" size="2" weight="medium" htmlFor="password">
-              Password
+          )}
+          <Text as="label" size="2" weight="medium" htmlFor="password">
+            Password
+          </Text>
+          <div className="relative">
+            <LockClosedIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+            <input
+              id="password"
+              type="password"
+              autoComplete="current-password"
+              disabled={isLoading}
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+              {...register("password", { required: "Password is required" })}
+            />
+          </div>
+          {errors.password && (
+            <Text color="red" size="1" as="span" className="ml-2">
+              {errors.password.message}
             </Text>
-            <div className="relative">
-              <LockClosedIcon className="absolute left-3 top-2.5 h-4 w-4 text-gray-500" />
-              <input
-                id="password"
-                type="password"
-                autoComplete="current-password"
-                disabled={isLoading}
-                className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-9 text-sm shadow-sm transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
-                {...register("password", { required: "Password is required" })}
-              />
-              {errors.password && (
-                <Text color="red" size="1" as="span" className="ml-2">
-                  {errors.password.message}
-                </Text>
-              )}
-            </div>
-          </Flex>
+          )}
           <Button disabled={isLoading}>
             {isLoading ? (
               <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />

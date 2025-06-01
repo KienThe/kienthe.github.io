@@ -24,6 +24,15 @@ interface Book {
   cover_url?: string
 }
 
+interface Pagination {
+  current: number
+  next: number | null
+  prev: number | null
+  last: number
+  limit: number
+  total: number
+}
+
 interface Chapter {
   id: number
   name: string
@@ -38,6 +47,7 @@ interface ApiResponse<T> {
   success: boolean
   message?: string
   data: T
+  pagination?: Pagination
 }
 
 interface TypedCrawlLog extends Omit<CrawlLog, "data"> {
@@ -59,12 +69,13 @@ interface StoredCredentials {
 }
 
 export function CrawlView() {
-  const [email, setEmail] = useState("godnaruto6519@gmail.com")
-  const [password, setPassword] = useState("kien89928")
+  const [email, setEmail] = useState("thekien651@gmail.com")
+  const [password, setPassword] = useState("651999")
   const [logs, setLogs] = useState<TypedCrawlLog[]>([])
   const [books, setBooks] = useState<Book[]>([])
   const [chapters, setChapters] = useState<Chapter[]>([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [pagination, setPagination] = useState<Pagination | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [networkRequests, setNetworkRequests] = useState<TypedNetworkRequest[]>(
     []
@@ -125,7 +136,7 @@ export function CrawlView() {
         console.error("Error loading stored credentials:", error)
       }
     }
-    checkAuth().then(r => ({}))
+    checkAuth().then((r) => ({}))
   }, [])
 
   const handleAutoLogin = async (
@@ -209,6 +220,9 @@ export function CrawlView() {
       if (result && "data" in result) {
         const response = result as ApiResponse<Book[]>
         setBooks(response.data)
+        if (response.pagination) {
+          setPagination(response.pagination)
+        }
       }
     } finally {
       setIsLoading(false)
@@ -288,6 +302,10 @@ export function CrawlView() {
     } finally {
       setIsLoading(false)
     }
+  }
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
   }
 
   return (
@@ -403,6 +421,31 @@ export function CrawlView() {
                 </div>
               ))}
             </div>
+            {pagination && (
+              <div className="mt-4 flex items-center justify-between">
+                <div className="text-sm text-gray-700">
+                  Trang {pagination.current} / {pagination.last}
+                </div>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handlePageChange(pagination.prev || 1)}
+                    disabled={!pagination.prev || isLoading}
+                    className="px-3 py-1 text-sm border rounded hover:bg-gray-50 disabled:opacity-50"
+                  >
+                    Trước
+                  </button>
+                  <button
+                    onClick={() =>
+                      handlePageChange(pagination.next || pagination.last)
+                    }
+                    disabled={!pagination.next || isLoading}
+                    className="px-3 py-1 text-sm border rounded hover:bg-gray-50 disabled:opacity-50"
+                  >
+                    Sau
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
 

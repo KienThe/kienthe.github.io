@@ -1,4 +1,6 @@
 import { authRouter, userRouter } from "~/server/api/routers"
+import { externalRouter } from "~/server/api/routers/external"
+import { booksRouter } from "~/server/api/routers/books"
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc"
 
 /**
@@ -8,7 +10,9 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc"
  */
 export const appRouter = createTRPCRouter({
   user: userRouter,
-  auth: authRouter
+  auth: authRouter,
+  external: externalRouter,
+  books: booksRouter
 })
 
 // export type definition of API

@@ -1,4 +1,4 @@
-import { type ActionModel, ActionType, type Direction } from "~/types"
+import { type ActionModel, ActionType, type Direction } from "~/lib/types"
 
 function resetAction(size: number): ActionModel {
   return {

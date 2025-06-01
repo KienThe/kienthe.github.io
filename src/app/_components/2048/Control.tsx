@@ -2,8 +2,8 @@
 
 import { useAtomValue, useSetAtom } from "jotai"
 import { useCallback, useEffect, useState } from "react"
-import { resetAction } from "~/stores/action"
-import { boardSizeAtom, gameStateAtom } from "~/stores/game"
+import { resetAction } from "~/lib/stores/action"
+import { boardSizeAtom, gameStateAtom } from "~/lib/stores/game"
 
 const MIN_BOARD_SIZE = 4
 const MAX_BOARD_SIZE = 10

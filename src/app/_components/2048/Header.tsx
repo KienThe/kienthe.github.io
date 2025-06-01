@@ -2,7 +2,7 @@
 
 import { useAtomValue } from "jotai"
 import { useEffect, useState } from "react"
-import { gameStateAtom } from "~/stores"
+import { gameStateAtom } from "~/lib/stores"
 import { Control } from "./Control"
 
 const Header = () => {

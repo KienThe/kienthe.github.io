@@ -1,4 +1,4 @@
-import { type Animation, AnimationType, Direction } from "~/types"
+import { type Animation, AnimationType, Direction } from "~/lib/types"
 
 export type BoardType = number[]
 
@@ -66,7 +66,11 @@ export function initializeBoard(boardSize: number): BoardUpdate {
   return { board, scoreIncrease: 0, animations }
 }
 
-function getRotatedIndex( index: number, boardSize: number, direction: Direction ): number {
+function getRotatedIndex(
+  index: number,
+  boardSize: number,
+  direction: Direction
+): number {
   let x = index % boardSize
   let y = Math.floor(index / boardSize)
 

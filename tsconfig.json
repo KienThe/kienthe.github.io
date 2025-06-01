@@ -19,11 +19,13 @@
       }
     ],
     "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./*"],
-      "~/components/*": ["./src/app/_components/*"],
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/app/_components/*"],
+      "@/types/*": ["./src/lib/types/*"],
+      "@/server/*": ["./src/server/*"],
+      "@/lib/*": ["./src/lib/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "drizzle.config.js"],
   "exclude": ["node_modules"]
 }

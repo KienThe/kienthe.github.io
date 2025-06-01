@@ -1,6 +1,6 @@
 import { useAtom } from "jotai"
 import { useCallback } from "react"
-import { dismissAction, gameStateAtom, resetAction } from "~/stores"
+import { dismissAction, gameStateAtom, resetAction } from "~/lib/stores"
 
 const Overlay: React.FC = () => {
   const [gameState, setGameState] = useAtom(gameStateAtom)
