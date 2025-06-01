@@ -1,7 +1,6 @@
 import { Skeleton, Table } from "@radix-ui/themes"
 
 const TABLE_CELL_ROW_HEIGHT = 32
-const TABLE_HEADER_ROW_HEIGHT = 32
 
 export type TableSkeletonType = {
   row_number?: number

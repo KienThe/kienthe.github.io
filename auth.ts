@@ -1,17 +1,17 @@
+import { db } from "@/server/db"
+import {
+  accounts,
+  sessions,
+  users,
+  verificationTokens
+} from "@/server/db/schema"
+import type { User } from "@/server/db/types"
 import type { JWT } from "@auth/core/jwt"
 import Credentials from "@auth/core/providers/credentials"
 import type { Session } from "@auth/core/types"
 import { DrizzleAdapter } from "@auth/drizzle-adapter"
 import bcrypt from "bcrypt"
 import NextAuth from "next-auth"
-import { db } from "~/server/db"
-import {
-  accounts,
-  sessions,
-  users,
-  verificationTokens
-} from "~/server/db/schema"
-import type { User } from "~/server/db/types"
 
 declare module "@auth/core/types" {
   interface Session {

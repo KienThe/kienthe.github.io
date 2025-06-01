@@ -1,12 +1,12 @@
-import bcrypt from "bcrypt"
-import { eq } from "drizzle-orm"
-import { loginSchema, registerSchema } from "~/lib/zod"
+import { loginSchema, registerSchema } from "@/lib/zod"
 import {
   createTRPCRouter,
   protectedProcedure,
   publicProcedure
-} from "~/server/api/trpc"
-import { users } from "~/server/db/schema"
+} from "@/server/api/trpc"
+import { users } from "@/server/db/schema"
+import bcrypt from "bcrypt"
+import { eq } from "drizzle-orm"
 
 export const authRouter = createTRPCRouter({
   login: publicProcedure.input(loginSchema).mutation(async ({ ctx, input }) => {

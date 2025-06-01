@@ -1,7 +1,7 @@
-import { authRouter, userRouter } from "~/server/api/routers"
-import { externalRouter } from "~/server/api/routers/external"
-import { booksRouter } from "~/server/api/routers/books"
-import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc"
+import { authRouter, userRouter } from "@/server/api/routers"
+import { booksRouter } from "@/server/api/routers/books"
+import { externalRouter } from "@/server/api/routers/external"
+import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc"
 
 /**
  * This is the primary router for your server.

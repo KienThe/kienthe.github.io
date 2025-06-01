@@ -121,11 +121,7 @@ export const books = pgTable("books", {
     150: string
   }>(),
   synopsis: text("synopsis"),
-  voteCount: integer("vote_count"),
   reviewScore: doublePrecision("review_score"),
-  reviewCount: integer("review_count"),
-  commentCount: integer("comment_count"),
-  chapterCount: integer("chapter_count"),
   viewCount: integer("view_count"),
   wordCount: integer("word_count"),
   createdAt: timestamp("created_at", { withTimezone: true }),
@@ -137,7 +133,6 @@ export const books = pgTable("books", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   objectType: varchar("object_type", { length: 32 }),
-  bookmarkCount: integer("bookmark_count"),
   chapterPerWeek: integer("chapter_per_week"),
   readyForSale: boolean("ready_for_sale"),
   discountPrice: integer("discount_price"),
@@ -171,7 +166,6 @@ export const chapters = pgTable("chapters", {
   unlockPrice: integer("unlock_price"),
   unlockKeyPrice: integer("unlock_key_price"),
   isLocked: boolean("is_locked"),
-  reportCount: integer("report_count"),
   objectType: varchar("object_type", { length: 32 }),
   reportOptions: jsonb("report_options").$type<
     Array<{
@@ -180,6 +174,109 @@ export const chapters = pgTable("chapters", {
       content_placeholder: string
     }>
   >()
-  // book: jsonb("book").$type<any>(), // Nếu cần lưu book lồng, có thể bật
-  // creator: jsonb("creator").$type<any>(), // Nếu cần lưu creator lồng, có thể bật
+})
+
+// Votes
+export const votes = pgTable("votes", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id")
+    .notNull()
+    .references(() => books.id, { onDelete: "cascade" }),
+  value: integer("value").notNull(), // 1 for upvote, -1 for downvote
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow()
+})
+
+// Reviews
+export const reviews = pgTable("reviews", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id")
+    .notNull()
+    .references(() => books.id, { onDelete: "cascade" }),
+  content: text("content"),
+  rating: integer("rating").notNull(), // 1-5 stars
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow()
+})
+
+// Bookmarks
+export const bookmarks = pgTable("bookmarks", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id")
+    .notNull()
+    .references(() => books.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow()
+})
+
+// Comments
+export const comments = pgTable("comments", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id")
+    .notNull()
+    .references(() => books.id, { onDelete: "cascade" }),
+  chapterId: integer("chapter_id").references(() => chapters.id, {
+    onDelete: "cascade"
+  }),
+  content: text("content").notNull(),
+  parentId: integer("parent_id").references((): any => comments.id, {
+    onDelete: "cascade"
+  }), // For nested comments
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow()
+})
+
+// Chapter Views
+export const chapterViews = pgTable("chapter_views", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  chapterId: integer("chapter_id")
+    .notNull()
+    .references(() => chapters.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow()
+})
+
+// Book Views
+export const bookViews = pgTable("book_views", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id")
+    .notNull()
+    .references(() => books.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow()
+})
+
+// Report Issues
+export const reports = pgTable("reports", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  bookId: integer("book_id").references(() => books.id, {
+    onDelete: "cascade"
+  }),
+  chapterId: integer("chapter_id").references(() => chapters.id, {
+    onDelete: "cascade"
+  }),
+  title: varchar("title", { length: 256 }).notNull(),
+  content: text("content").notNull(),
+  status: varchar("status", { length: 32 }).default("pending"), // pending, resolved, rejected
+  assignedTo: text("assigned_to").references(() => users.id),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow()
 })

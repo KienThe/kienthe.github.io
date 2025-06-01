@@ -1,12 +1,12 @@
+import type { User as UserType } from "@/server/db/types"
 import type { DefaultSession } from "next-auth"
-import type { User } from "../db/types"
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    user: User & DefaultSession["user"]
+    user: UserType & DefaultSession["user"]
   }
 
-  interface User {
+  interface User extends UserType {
     // Add any additional properties from your database User type here
     avatar?: string[] | null
     level?: number | null

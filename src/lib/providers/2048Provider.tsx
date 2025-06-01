@@ -1,11 +1,11 @@
+import { type GameState } from "@/lib/types"
+import { getStoredData } from "@/utils"
 import {
   createContext,
   useContext,
   useState,
   type PropsWithChildren
 } from "react"
-import { type GameState } from "~/lib/types"
-import { getStoredData } from "~/utils"
 
 const storedData = getStoredData()
 
@@ -37,7 +37,7 @@ export const useGame = () => {
 }
 
 function Game2048Provider({ children }: PropsWithChildren) {
-  const [gameState, setGameState] = useState(initialGameState)
+  const [gameState] = useState(initialGameState)
 
   const value = {
     gameState

@@ -1,13 +1,9 @@
 "use client"
 
-import { ReactTable, TableSkeleton } from "@/components/table"
-import type { Book } from "@/types/Book"
+import { ReactTable, TableProvider, TableSkeleton } from "@/components/table"
+import type { Book } from "@/server/db/types"
 import { type ColumnDef } from "@tanstack/react-table"
 import { Suspense } from "react"
-import {
-  TableProvider,
-  useTableContext
-} from "~/app/_components/table/provider"
 import { useBookQuery } from "./useBookQuery"
 
 const columns: ColumnDef<Book>[] = [
@@ -33,14 +29,15 @@ const columns: ColumnDef<Book>[] = [
   },
   {
     accessorKey: "review_score",
-    header: "Đánh giá",
-    cell: ({ row }) =>
-      `${row.original.review_score} (${row.original.review_count})`
+    header: "Đánh giá"
   },
   {
-    accessorKey: "updated_at",
+    accessorKey: "updatedAt",
     header: "Cập nhật",
-    cell: ({ row }) => new Date(row.original.updated_at).toLocaleDateString()
+    cell: ({ row }) =>
+      row.original.updatedAt
+        ? new Date(row.original.updatedAt).toLocaleDateString()
+        : "Chưa cập nhật"
   }
 ]
 

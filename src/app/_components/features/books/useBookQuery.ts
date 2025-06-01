@@ -1,6 +1,6 @@
 import { useTableContext } from "@/components/table"
+import type { Book } from "@/server/db/types"
 import { api } from "@/trpc/react"
-import type { Book } from "@/types/Book"
 
 type BookIndexInputType = {
   page: number

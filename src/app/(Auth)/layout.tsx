@@ -1,9 +1,9 @@
+import { Sidebar, Topbar } from "@/app/_components/layout"
+import { Breadcrumb } from "@/app/_components/layout/Breadcrumb"
 import type { Session } from "@auth/core/types"
 import { Box } from "@radix-ui/themes"
 import { redirect } from "next/navigation"
 import type { PropsWithChildren } from "react"
-import { Sidebar, Topbar } from "~/app/_components/layout"
-import { Breadcrumb } from "~/app/_components/layout/Breadcrumb"
 import { auth } from "../../../auth"
 
 export default async function Layout({ children }: PropsWithChildren) {

@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm"
 import { z } from "zod"
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc"
-import { users } from "~/server/db/schema"
+import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc"
+import { users } from "@/server/db/schema"
 
 const createUserSchema = z.object({
   name: z.string().min(1),
