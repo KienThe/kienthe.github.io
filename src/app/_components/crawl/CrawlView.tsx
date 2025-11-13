@@ -14,7 +14,7 @@ import {
   login,
   type CrawlLog,
   type NetworkRequest
-} from "~/app/(Auth)/crawl/actions"
+} from "@/app/(Auth)/crawl/actions"
 
 interface Book {
   id: number

@@ -1,7 +1,7 @@
 /* eslint-disable */
 "use server"
 
-import redis from "~/lib/redis"
+import redis from "@/lib/redis"
 
 const API_URL = "https://backend.metruyencv.com/api"
 const STATE_KEY = "crawl:state"

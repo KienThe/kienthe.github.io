@@ -1,6 +1,6 @@
 "use client"
 
-import { CrawlView } from "~/app/_components/crawl/CrawlView"
+import { CrawlView } from "@/app/_components/crawl/CrawlView"
 
 export default function Page() {
   return (

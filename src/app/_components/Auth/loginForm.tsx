@@ -6,8 +6,8 @@ import { Button, Card, Flex, Text } from "@radix-ui/themes"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { loginSchema } from "~/lib/zod"
-import type { LoginUser } from "~/server/db/types"
+import { loginSchema } from "@/lib/zod"
+import type { LoginUser } from "@/server/db/types"
 
 export function LoginForm() {
   const [isLoading, setIsLoading] = useState(false)

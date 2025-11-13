@@ -9,8 +9,8 @@ import { Button, Card, Flex, Text } from "@radix-ui/themes"
 import { signIn } from "next-auth/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import type { NewUser } from "~/server/db/types"
-import { api } from "~/trpc/react"
+import type { NewUser } from "@/server/db/types"
+import { api } from "@/trpc/react"
 
 type RegisterFormInputs = NewUser & { confirmPassword: string }
 

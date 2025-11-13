@@ -1,11 +1,15 @@
-import { signIn } from "@/auth"
+import { signIn } from "next-auth/react"
 
 export function SignIn() {
   return (
     <form
       action={async (formData) => {
         "use server"
-        await signIn("credentials", formData)
+        await signIn("credentials", {
+          email: formData.get("email") as string,
+          password: formData.get("password") as string,
+          redirectTo: "/crawl"
+        })
       }}
     >
       <label>

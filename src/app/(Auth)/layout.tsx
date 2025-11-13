@@ -7,10 +7,10 @@ import type { PropsWithChildren } from "react"
 import { auth } from "../../../auth"
 
 export default async function Layout({ children }: PropsWithChildren) {
-  const session: Session | null = await auth()
-  if (!session) {
-    redirect("/auth/login")
-  }
+  // const session: Session | null = await auth()
+  // if (!session) {
+  //   redirect("/auth/login")
+  // }
 
   return (
     <div className="flex min-h-screen w-full">
