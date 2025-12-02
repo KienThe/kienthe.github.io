@@ -10,12 +10,12 @@ type BookIndexInputType = {
 export function useBookQuery() {
   const { input, getTableData } = useTableContext<Book, BookIndexInputType>()
 
-  const result = api.external.fetch.useQuery({
-    url: `https://backend.metruyencv.com/api/books?page=${input.page}&limit=${input.limit}`,
-    method: "GET"
+  const result = api.books.getBooks.useQuery({
+    page: input.page,
+    limit: input.limit
   })
 
   return {
-    tableData: getTableData(result)
+    tableData: getTableData(result as any)
   }
 }
